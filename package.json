@@ -73,7 +73,13 @@
     "start": "next dev --hostname 0.0.0.0 --port 3000",
     "build": "next build",
     "serve": "next start --hostname 0.0.0.0 --port 3000",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "pm2:start": "pm2 start ecosystem.config.cjs",
+    "pm2:reload": "pm2 reload ecosystem.config.cjs",
+    "pm2:stop": "pm2 stop docwin-frontend",
+    "pm2:restart": "pm2 restart docwin-frontend",
+    "pm2:logs": "pm2 logs docwin-frontend",
+    "pm2:delete": "pm2 delete docwin-frontend"
   },
   "browserslist": {
     "production": [
