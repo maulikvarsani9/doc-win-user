@@ -69,7 +69,7 @@ export async function serveFile(rel: string) {
   }
   const disposition = rec!.kind === "file" && rec!.content_type !== "application/pdf" ? "attachment" : "inline";
   const safe = [...rec!.original_filename].filter((c) => /[A-Za-z0-9._\- ]/.test(c)).join("") || "download";
-  return new Response(data, {
+  return new Response(new Uint8Array(data), {
     headers: { "Content-Type": rec!.content_type, "Cache-Control": "public, max-age=31536000, immutable", "Content-Disposition": `${disposition}; filename="${safe}"` },
   });
 }
