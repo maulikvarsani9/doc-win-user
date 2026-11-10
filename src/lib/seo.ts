@@ -22,8 +22,15 @@ export function cleanPath(path: string) {
   return `${clean}${query ? `?${query}` : ""}${hash}`;
 }
 
+export function publicUrl(path: string) {
+  const clean = cleanPath(path);
+  if (clean === "/" || clean === "") return site.url;
+  if (clean.startsWith("/#") || clean.startsWith("/?")) return `${site.url}${clean.slice(1)}`;
+  return `${site.url}${clean}`;
+}
+
 export function pageMetadata({ title, description, path, noindex, image, article }: PageSeo): Metadata {
-  const url = cleanPath(path);
+  const url = publicUrl(path);
   const index = site.allowIndexing && !noindex;
   const img = typeof image === "string" ? { url: image } : image ?? { url: site.ogImage, width: 1200, height: 630 };
   const images = [{ alt: title, ...img }];
@@ -32,13 +39,15 @@ export function pageMetadata({ title, description, path, noindex, image, article
     title: { absolute: title },
     description,
     alternates: { canonical: url },
-    robots: index ? { index: true, follow: true } : { index: false, follow: true },
+    robots: index
+      ? { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } }
+      : { index: false, follow: true },
     openGraph: article ? { ...og, type: "article", ...article } : { ...og, type: "website" },
     twitter: { card: "summary_large_image", title, description, images: images.map((i) => i.url) },
   };
 }
 
-export const abs = (path: string) => (/^https?:\/\//.test(path) ? path : `${site.url}${cleanPath(path)}`);
+export const abs = (path: string) => (/^https?:\/\//.test(path) ? path : publicUrl(path));
 export const brandTitle = (t: string) => (/docwin/i.test(t) || t.length + site.name.length + 3 > 60 ? t : `${t} | ${site.name}`);
 
 type SchemaPerson = { name: string; slug: string; credential?: string; role?: string; bio?: string; avatar?: string; linkedin?: string };
