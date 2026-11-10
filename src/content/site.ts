@@ -1,6 +1,6 @@
 export const site = {
   name: "DocWin Digital",
-  url: process.env.NEXT_PUBLIC_SITE_URL!.replace(/\/$/, ""),
+  url: "https://docwindigital.com",
   allowIndexing: process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true",
   showReviewFlags: process.env.NEXT_PUBLIC_SHOW_REVIEW_FLAGS === "true",
   tagline: "Healthcare digital marketing guided by practicing doctors.",

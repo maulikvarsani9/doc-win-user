@@ -1,11 +1,11 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { gonePaths, legacyRedirects } from "@/content/redirects";
+import { site } from "@/content/site";
 
 const goneHtml = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Page removed | DocWin Digital</title></head><body style="font-family:system-ui;padding:4rem;max-width:40rem"><h1>This page has been removed</h1><p>The content is no longer available. <a href="/who-we-serve/">See who we serve</a> or <a href="/">return home</a>.</p></body></html>`;
 
 const redirectMap = new Map(legacyRedirects.map((r) => [r.from, r.to]));
-const canonicalHost = new URL(process.env.NEXT_PUBLIC_SITE_URL!).host;
-const apexHost = canonicalHost.replace(/^www\./, "");
+const canonicalHost = new URL(site.url).host;
 
 const hostOf = (req: NextRequest) => (req.headers.get("x-forwarded-host") ?? req.headers.get("host") ?? req.nextUrl.host).split(",")[0].trim().split(":")[0];
 
@@ -20,8 +20,8 @@ export function proxy(req: NextRequest) {
   const bare = pathname.replace(/\/+$/, "") || "/";
   const host = hostOf(req);
 
-  if (host === apexHost && apexHost !== canonicalHost) {
-    return NextResponse.redirect(`https://${canonicalHost}${pathname}${req.nextUrl.search}`, 301);
+  if (host === `www.${canonicalHost}`) {
+    return NextResponse.redirect(`${site.url}${pathname}${req.nextUrl.search}`, 301);
   }
 
   if (gonePaths.includes(bare)) {

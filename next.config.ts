@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
+import { site } from "./src/content/site";
 
-const site = new URL(process.env.NEXT_PUBLIC_SITE_URL!);
+const origin = new URL(site.url);
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
@@ -12,7 +13,7 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [60, 75],
-    remotePatterns: [{ protocol: site.protocol === "http:" ? "http" : "https", hostname: site.hostname, pathname: "/api/files/**" }],
+    remotePatterns: [{ protocol: origin.protocol === "http:" ? "http" : "https", hostname: origin.hostname, pathname: "/api/files/**" }],
   },
   async headers() {
     return [{ source: "/downloads/:file*", headers: [{ key: "X-Robots-Tag", value: "noindex" }] }];
