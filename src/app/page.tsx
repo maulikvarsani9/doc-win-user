@@ -32,7 +32,7 @@ export default async function HomePage() {
       <Testimonials />
       <EbookSection />
       <PageFaqs title="Healthcare Marketing Questions, Answered" faqs={homeFaqs} testId="home-faqs"
-        aside={<><p className="max-w-xs text-[15px] leading-relaxed text-ink-600">Have a question we haven&apos;t covered? Our team typically responds within 24 hours.</p><div className="mt-5"><ArrowLink href="/contact/" testId="home-faqs-contact">Contact us</ArrowLink></div></>} />
+        aside={<><p className="max-w-xs text-[15px] leading-relaxed text-ink-600">Have a question we haven&apos;t covered? Our team typically responds within 24 hours.</p><div className="mt-5"><ArrowLink href="/contact" testId="home-faqs-contact">Contact us</ArrowLink></div></>} />
       <FinalCta title="Ready to Transform Your Practice's Digital Presence?" text="Your patients are searching online. Make sure they find you." testId="home-final-cta" />
       <BlogSection />
     </>

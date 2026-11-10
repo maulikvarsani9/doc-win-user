@@ -30,7 +30,7 @@ export function SubmitRow({ formId, label, busy, error, dark, note }: { formId: 
       <p className={cn("text-xs leading-relaxed", dark ? "text-brand-100" : "text-ink-500")}>
         {note ?? "Please don't include patient or personal health information."}{" "}
         We use your details only to respond to you. See our{" "}
-        <Link href="/privacy-policy/" className="underline underline-offset-2">Privacy Policy</Link>.
+        <Link href="/privacy-policy" className="underline underline-offset-2">Privacy Policy</Link>.
       </p>
     </div>
   );

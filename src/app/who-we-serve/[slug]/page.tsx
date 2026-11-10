@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const a = audienceBySlug((await params).slug);
   if (!a) return {};
   const p = audiencePages[a.slug];
-  const path = `/who-we-serve/${a.slug}/`;
+  const path = `/who-we-serve/${a.slug}`;
   if (!p) return pageMetadata({ title: `${a.name} Marketing | DocWin Digital`, description: a.description, path, noindex: true });
   return pageMetadata({ title: p.seoTitle, description: p.metaDescription, path, noindex: a.status !== "ready-for-review", image: { url: `/images/og/industry-${a.slug}.jpg`, width: 1200, height: 630 } });
 }
@@ -33,12 +33,12 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
       title={`Marketing for ${a.name}`}
       intro={a.description}
       template="Audience Page"
-      crumbs={[{ name: "Home", path: "/" }, { name: "Who We Serve", path: "/who-we-serve/" }, { name: a.name, path: `/who-we-serve/${a.slug}/` }]}
+      crumbs={[{ name: "Home", path: "/" }, { name: "Who We Serve", path: "/who-we-serve" }, { name: a.name, path: `/who-we-serve/${a.slug}` }]}
       status={a.status}
       primaryKeyword={a.primaryKeyword}
       supportingKeywords={a.supportingKeywords}
       reviewNote={a.reviewNote}
-      related={related.map((r) => ({ href: `/who-we-serve/${r.slug}/`, name: r.name, description: r.description, linkLabel: r.linkLabel }))}
+      related={related.map((r) => ({ href: `/who-we-serve/${r.slug}`, name: r.name, description: r.description, linkLabel: r.linkLabel }))}
     />
   );
 }

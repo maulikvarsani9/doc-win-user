@@ -4,9 +4,9 @@ import Link from "next/link";
 import { useLeadDialog, type DialogKind } from "./LeadDialogProvider";
 
 const hrefs: Record<DialogKind, string> = {
-  contact: "/contact/",
-  audit: "/free-marketing-audit/",
-  sample: "/free-marketing-audit/#sample-audit",
+  contact: "/contact",
+  audit: "/free-marketing-audit",
+  sample: "/free-marketing-audit#sample-audit",
 };
 
 export function CtaLink({ kind, className, children, testId }: { kind: DialogKind; className?: string; children: React.ReactNode; testId?: string }) {

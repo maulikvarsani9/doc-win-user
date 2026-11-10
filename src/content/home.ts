@@ -40,7 +40,7 @@ export const serviceTabs = [
     points: ["Review monitoring across Google and key healthcare directories", "Review-request workflows that follow platform rules", "Response guidance that never confirms someone is a patient"],
     image: "/images/reputation-consult.jpg", alt: "Doctor talking with a patient during a consultation",
     chip: { label: "Review response", value: "Drafted with a privacy check" },
-    links: [{ href: "/services/healthcare-reputation-management/", label: "Explore reputation management" }],
+    links: [{ href: "/services/healthcare-reputation-management", label: "Explore reputation management" }],
   },
   {
     id: "local-search", tab: "Local Search", title: "Dominate Local Search",
@@ -48,7 +48,7 @@ export const serviceTabs = [
     points: ["Medical SEO for service, condition and location pages", "Google Business Profile setup and upkeep", "Consistent practice details across healthcare directories"],
     image: "/images/local-search-phone.jpg", alt: "Physician taking a phone call in a clinic corridor",
     chip: { label: "Local profile", value: "Hours & services updated" },
-    links: [{ href: "/services/medical-seo/", label: "Explore medical SEO" }, { href: "/services/google-business-profile-listing-management/", label: "Manage your listings" }],
+    links: [{ href: "/services/medical-seo", label: "Explore medical SEO" }, { href: "/services/google-business-profile-listing-management", label: "Manage your listings" }],
   },
   {
     id: "social", tab: "Social Media", title: "Engage on Social Media",
@@ -56,7 +56,7 @@ export const serviceTabs = [
     points: ["Content calendars planned around your services", "Patient-education posts written in plain language", "Community management and comment moderation"],
     image: "/images/social-tablet.jpg", alt: "Clinician reviewing content on a tablet",
     chip: { label: "Next post", value: "Scheduled after medical review" },
-    links: [{ href: "/services/healthcare-social-media-marketing/", label: "See social media management" }],
+    links: [{ href: "/services/healthcare-social-media-marketing", label: "See social media management" }],
   },
   {
     id: "paid-ads", tab: "Paid Ads", title: "Reach Patients with Paid Ads",
@@ -64,7 +64,7 @@ export const serviceTabs = [
     points: ["Google Search and local campaigns for appointment-intent searches", "Facebook and Instagram campaigns planned within health-targeting rules", "Conversion tracking that keeps health information out of ad platforms"],
     image: "/images/ads-video-call.jpg", alt: "Doctor on a video consultation at his desk",
     chip: { label: "Conversion tracking", value: "No health data sent to ad platforms" },
-    links: [{ href: "/services/google-ads-healthcare/", label: "See Google Ads management" }, { href: "/services/meta-ads-healthcare/", label: "See Meta Ads services" }],
+    links: [{ href: "/services/google-ads-healthcare", label: "See Google Ads management" }, { href: "/services/meta-ads-healthcare", label: "See Meta Ads services" }],
   },
   {
     id: "patient-data", tab: "Patient Data", title: "Secure Patient Data",
@@ -72,7 +72,7 @@ export const serviceTabs = [
     points: ["Enquiry and lead data organized in one place", "Consent records for email communication", "Analytics configured to exclude health information"],
     image: "/images/data-laptop.jpg", alt: "Physician working on a laptop in her office",
     chip: { label: "Email consent", value: "Recorded with date & source" },
-    links: [{ href: "/services/data-management/", label: "Learn about data management" }],
+    links: [{ href: "/services/data-management", label: "Learn about data management" }],
   },
 ];
 

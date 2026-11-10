@@ -15,7 +15,7 @@ const GROUPS = [
 
 function PersonCard({ a }: { a: AdminAuthor }) {
   return (
-    <Link href={`/admin/authors/${a.id}/`} className="group flex items-center gap-4 rounded-xl bg-white p-4 ring-1 ring-ink-900/[0.08] transition-shadow hover:shadow-[0_18px_40px_-26px_rgba(11,25,44,0.45)]" data-testid={`admin-author-card-${a.slug}`}>
+    <Link href={`/admin/authors/${a.id}`} className="group flex items-center gap-4 rounded-xl bg-white p-4 ring-1 ring-ink-900/[0.08] transition-shadow hover:shadow-[0_18px_40px_-26px_rgba(11,25,44,0.45)]" data-testid={`admin-author-card-${a.slug}`}>
       <Avatar name={a.name} src={a.avatar || a.photo} size={52} />
       <span className="min-w-0">
         <span className="block truncate font-semibold text-ink-900 group-hover:text-brand-700">{a.name}</span>
@@ -31,7 +31,7 @@ export default function AdminAuthorsPage() {
   return (
     <>
       <PageHeader title="Authors & team" text="One shared list of people, used for blog bylines, author pages, the Team page and the homepage."
-        action={<Link href="/admin/authors/new/" className={btnCls("brand")} data-testid="admin-author-create-btn"><Plus />Add person</Link>} />
+        action={<Link href="/admin/authors/new" className={btnCls("brand")} data-testid="admin-author-create-btn"><Plus />Add person</Link>} />
       <div className="space-y-10 px-5 pb-12 sm:px-8" data-testid="admin-authors-list">
         {!data ? <Loading /> : GROUPS.map((g) => {
           const people = data.filter((a) => a.group === g.id);

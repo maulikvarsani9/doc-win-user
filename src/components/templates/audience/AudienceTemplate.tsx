@@ -13,9 +13,9 @@ import { AudienceApproach, AudienceConsiderations, AudienceProof, AudiencePriori
 
 export function AudienceTemplate({ audience, page }: { audience: Audience; page: AudiencePage }) {
   const group = audienceGroups.find((g) => g.id === audience.group)!;
-  const path = `/who-we-serve/${audience.slug}/`;
-  const crumbs = [{ name: "Home", path: "/" }, { name: "Who We Serve", path: "/who-we-serve/" }, { name: audience.name, path }];
-  const related = page.related.map((slug) => audienceBySlug(slug)!).map((a) => ({ href: `/who-we-serve/${a.slug}/`, label: a.name, slug: a.slug }));
+  const path = `/who-we-serve/${audience.slug}`;
+  const crumbs = [{ name: "Home", path: "/" }, { name: "Who We Serve", path: "/who-we-serve" }, { name: audience.name, path }];
+  const related = page.related.map((slug) => audienceBySlug(slug)!).map((a) => ({ href: `/who-we-serve/${a.slug}`, label: a.name, slug: a.slug }));
   const proof = audienceProof(audience.slug, audience.group);
   const mini = <MiniAuditBox b2b={proof.b2b} testId="audience-mini-audit" className={proof.b2b ? undefined : "pt-0 sm:pt-0"} />;
   const image = `/images/stock/${audience.slug}.jpg`;

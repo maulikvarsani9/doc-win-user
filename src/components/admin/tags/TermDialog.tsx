@@ -9,7 +9,7 @@ import type { AdminTerm } from "@/lib/admin-types";
 import { Field, Input, TextArea, btnCls } from "../ui";
 import { SeoFields } from "../SeoFields";
 
-const PATH = { topic: "/blogs/topic/", speciality: "/blogs/speciality/", resource_type: "/resources/?type=" } as const;
+const PATH = { topic: "/blogs/topic/", speciality: "/blogs/speciality/", resource_type: "/resources?type=" } as const;
 
 export function TermDialog({ term, open, onOpenChange, onSaved }: { term: AdminTerm; open: boolean; onOpenChange: (o: boolean) => void; onSaved: () => void }) {
   const [f, setF] = useState(term);
@@ -44,7 +44,7 @@ export function TermDialog({ term, open, onOpenChange, onSaved }: { term: AdminT
           {blog && <Field label="Description" hint="Shown at the top of the category page."><TextArea value={f.description} onChange={(e) => set("description", e.target.value)} maxLength={600} data-testid="admin-term-description-input" /></Field>}
           <Field label="Display order"><Input type="number" value={f.order} onChange={(e) => set("order", Number(e.target.value) || 0)} data-testid="admin-term-order-input" /></Field>
           {blog && (
-            <SeoFields prefix="admin-term" title={f.seo_title} description={f.seo_description} path={`${PATH[f.kind]}${f.slug}/`} onTitle={(v) => set("seo_title", v)} onDescription={(v) => set("seo_description", v)}
+            <SeoFields prefix="admin-term" title={f.seo_title} description={f.seo_description} path={`${PATH[f.kind]}${f.slug}`} onTitle={(v) => set("seo_title", v)} onDescription={(v) => set("seo_description", v)}
               fallbackTitle={f.kind === "topic" ? `${f.name}: Healthcare Marketing Articles | DocWin Digital` : `Marketing for ${f.name}: Articles | DocWin Digital`} fallbackDescription={f.description} />
           )}
           <div className="flex justify-end gap-2 pt-2">

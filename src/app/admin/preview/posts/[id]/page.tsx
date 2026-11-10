@@ -23,7 +23,7 @@ export default function PreviewPostPage() {
         <span className="font-semibold">Preview</span>
         <StatusBadge status={data.post.status} at={data.post.published_at} />
         <span className="hidden text-ink-300 sm:inline">{data.post.status === "published" ? "This is how the live article looks." : "Drafts are only visible to signed-in admins."}</span>
-        <Link href={`/admin/posts/${id}/`} className="ml-auto inline-flex items-center gap-1.5 font-semibold text-white hover:underline" data-testid="admin-preview-back"><ArrowLeft className="size-4" />Back to editor</Link>
+        <Link href={`/admin/posts/${id}`} className="ml-auto inline-flex items-center gap-1.5 font-semibold text-white hover:underline" data-testid="admin-preview-back"><ArrowLeft className="size-4" />Back to editor</Link>
       </div>
       <ArticleView post={data.post} ctas={data.ctas} faces={faces} />
     </div>

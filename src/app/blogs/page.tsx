@@ -23,10 +23,10 @@ export default async function BlogHubPage({ searchParams }: { searchParams: Sear
   const showSections = !state.topic && !state.speciality && !state.q && state.page === 1;
   return (
     <>
-      {showSections && <JsonLd data={webPageSchema("CollectionPage", "Healthcare Marketing Blog", "/blogs/")} />}
+      {showSections && <JsonLd data={webPageSchema("CollectionPage", "Healthcare Marketing Blog", "/blogs")} />}
       <BlogListing state={state} showSections={showSections} eyebrow="DocWin Insights" title="Healthcare Marketing Blog"
       lead="Practical healthcare marketing articles from our marketing team and the practicing doctors on our review panel."
-      crumbs={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blogs/" }]} />
+      crumbs={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blogs" }]} />
     </>
   );
 }

@@ -10,7 +10,7 @@ import { pageMetadata, webPageSchema } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Contact DocWin Digital | Healthcare Marketing Consultation",
   description: "Contact DocWin Digital to book a healthcare marketing consultation or strategy call. Email arbaz@docwindigital.com. We typically respond within 24 hours.",
-  path: "/contact/",
+  path: "/contact",
 });
 
 const steps = [
@@ -43,9 +43,9 @@ function Reassurance() {
 export default function ContactPage() {
   return (
     <section className="bg-paper" data-testid="contact-page">
-      <JsonLd data={webPageSchema("ContactPage", "Contact DocWin Digital", "/contact/")} />
+      <JsonLd data={webPageSchema("ContactPage", "Contact DocWin Digital", "/contact")} />
       <Container className="pb-16 pt-6 sm:pb-24 sm:pt-10 lg:pb-32 lg:pt-12">
-        <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact/" }]} />
+        <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }]} />
         <div className="mt-8 grid gap-10 sm:mt-12 sm:gap-14 lg:mt-16 lg:grid-cols-12 lg:gap-x-14 lg:gap-y-12">
           <div className="lg:col-span-5">
             <Eyebrow>Contact us</Eyebrow>

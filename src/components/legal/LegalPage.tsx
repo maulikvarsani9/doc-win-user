@@ -5,12 +5,12 @@ import { Breadcrumbs } from "@/components/hubs/Breadcrumbs";
 import { legalDocs, type LegalDoc } from "@/content/legal";
 import { pageMetadata } from "@/lib/seo";
 
-export const legalMetadata = (d: LegalDoc) => pageMetadata({ title: `${d.title} | DocWin Digital`, description: d.description, path: `/${d.slug}/` });
+export const legalMetadata = (d: LegalDoc) => pageMetadata({ title: `${d.title} | DocWin Digital`, description: d.description, path: `/${d.slug}` });
 
 const anchor = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 export function LegalPage({ doc }: { doc: LegalDoc }) {
-  const crumbs = [{ name: "Home", path: "/" }, { name: doc.title, path: `/${doc.slug}/` }];
+  const crumbs = [{ name: "Home", path: "/" }, { name: doc.title, path: `/${doc.slug}` }];
   return (
     <section className="bg-white" data-testid={`legal-page-${doc.slug}`}>
       <div className="bg-paper">
@@ -48,7 +48,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
             </section>
           ))}
           <nav aria-label="Legal pages" className="flex flex-wrap gap-x-5 gap-y-2 border-t border-ink-900/10 pt-6 text-[14px]" data-testid="legal-other-links">
-            {legalDocs.filter((d) => d.slug !== doc.slug).map((d) => <Link key={d.slug} href={`/${d.slug}/`} className="font-medium text-brand-700 hover:underline">{d.title}</Link>)}
+            {legalDocs.filter((d) => d.slug !== doc.slug).map((d) => <Link key={d.slug} href={`/${d.slug}`} className="font-medium text-brand-700 hover:underline">{d.title}</Link>)}
           </nav>
         </article>
       </Container>

@@ -20,8 +20,8 @@ function Meta({ post }: { post: Post }) {
 
 export function ArticleHeader({ post }: { post: Post }) {
   const topic = post.topics[0];
-  const crumbs = [{ name: "Home", path: "/" }, { name: "Blog", path: "/blogs/" },
-    ...(topic ? [{ name: topic.name, path: `/blogs/topic/${topic.slug}/` }] : []), { name: post.title, path: postHref(post.slug) }];
+  const crumbs = [{ name: "Home", path: "/" }, { name: "Blog", path: "/blogs" },
+    ...(topic ? [{ name: topic.name, path: `/blogs/topic/${topic.slug}` }] : []), { name: post.title, path: postHref(post.slug) }];
   const tags = [...post.topics.map((t) => ({ ...t, seg: "topic" })), ...post.specialities.map((t) => ({ ...t, seg: "speciality" }))].slice(0, 4);
   return (
     <header className="bg-paper" data-testid="article-header">
@@ -31,7 +31,7 @@ export function ArticleHeader({ post }: { post: Post }) {
           <div className="flex flex-wrap gap-2">
             {post.ultimate_guide && <span className="rounded-md bg-ink-900 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-white">Ultimate guide</span>}
             {tags.map((t) => (
-              <Link key={t.id} href={`/blogs/${t.seg}/${t.slug}/`} className={t.seg === "topic" ? "rounded-full bg-brand-100 px-3 py-1 text-[12.5px] font-semibold text-brand-700 hover:bg-brand-200" : "rounded-full bg-white px-3 py-1 text-[12.5px] font-semibold text-ink-700 ring-1 ring-ink-900/10 hover:ring-ink-900/25"} data-testid={`article-tag-${t.slug}`}>
+              <Link key={t.id} href={`/blogs/${t.seg}/${t.slug}`} className={t.seg === "topic" ? "rounded-full bg-brand-100 px-3 py-1 text-[12.5px] font-semibold text-brand-700 hover:bg-brand-200" : "rounded-full bg-white px-3 py-1 text-[12.5px] font-semibold text-ink-700 ring-1 ring-ink-900/10 hover:ring-ink-900/25"} data-testid={`article-tag-${t.slug}`}>
                 {t.name}
               </Link>
             ))}

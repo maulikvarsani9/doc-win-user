@@ -34,7 +34,7 @@ export default async function AuthorPage({ params, searchParams }: Props) {
     <>
       <AuthorHeader author={a} count={post_count} />
       <PostGrid title={`Articles by and reviewed by ${a.name}`} data={posts} testId="author-articles-grid" href={(p) => pageHref(a.slug, p)}
-        empty={{ title: "No published articles yet", text: `${a.name}'s articles will appear here once they're published.`, href: "/blogs/", label: "Browse the blog" }} />
+        empty={{ title: "No published articles yet", text: `${a.name}'s articles will appear here once they're published.`, href: "/blogs", label: "Browse the blog" }} />
       <JsonLd data={{ "@context": "https://schema.org", "@type": "ProfilePage", mainEntity: personSchema(a) }} />
     </>
   );

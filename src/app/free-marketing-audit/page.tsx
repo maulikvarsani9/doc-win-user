@@ -11,7 +11,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Free Healthcare Marketing Audit for Practices | DocWin Digital",
   description: "Request a free healthcare marketing audit. We review 50 touchpoints across 10 categories that shape how patients find and choose your practice.",
-  path: "/free-marketing-audit/",
+  path: "/free-marketing-audit",
 });
 
 export default function FreeAuditPage() {
@@ -19,7 +19,7 @@ export default function FreeAuditPage() {
     <>
       <section className="bg-paper" data-testid="audit-page">
         <Container className="pb-16 pt-6 sm:pb-24 sm:pt-10 lg:pb-28 lg:pt-12">
-          <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Free Marketing Audit", path: "/free-marketing-audit/" }]} />
+          <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Free Marketing Audit", path: "/free-marketing-audit" }]} />
           <div className="mt-8 grid gap-10 sm:mt-12 sm:gap-14 lg:mt-16 lg:grid-cols-12 lg:gap-x-14 lg:gap-y-12">
             <div className="lg:col-span-5">
               <Eyebrow>Free marketing audit</Eyebrow>

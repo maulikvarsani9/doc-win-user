@@ -16,7 +16,7 @@ function People({ form, set }: Props) {
   const opts = authors.map((a) => ({ value: a.id!, label: `${a.name}${a.credential ? `, ${a.credential}` : ""}` }));
   return (
     <Card title="Author & review" testId="admin-post-people">
-      <Field label="Author" hint={<>Manage people in <Link href="/admin/authors/" className="font-semibold text-brand-700 hover:underline">Authors &amp; team</Link>.</>}>
+      <Field label="Author" hint={<>Manage people in <Link href="/admin/authors" className="font-semibold text-brand-700 hover:underline">Authors &amp; team</Link>.</>}>
         <SelectInput value={form.author_id} onChange={(v) => set("author_id", v)} options={opts} placeholder="Choose an author…" testId="admin-post-author-select" />
       </Field>
       <Field label="Medical reviewer" hint="Shown as “Medically reviewed by” on the article.">
@@ -72,10 +72,10 @@ export function PostSidebar({ form, set }: Props) {
           <TextArea value={form.excerpt} onChange={(e) => set("excerpt", e.target.value)} maxLength={400} data-testid="admin-post-excerpt-input" />
         </Field>
         <SeoFields prefix="admin-post" title={form.seo_title} description={form.seo_description} fallbackTitle={form.title ? `${form.title} | DocWin Digital` : ""}
-          fallbackDescription={form.excerpt || form.subtitle} path={`/blogs/${form.slug || "your-article"}/`} onTitle={(v) => set("seo_title", v)} onDescription={(v) => set("seo_description", v)} />
+          fallbackDescription={form.excerpt || form.subtitle} path={`/blogs/${form.slug || "your-article"}`} onTitle={(v) => set("seo_title", v)} onDescription={(v) => set("seo_description", v)} />
         <Toggle label="Hide from search engines" hint="Adds noindex and leaves it out of the sitemap." checked={form.noindex} onChange={(v) => set("noindex", v)} testId="admin-post-noindex-toggle" />
       </Card>
-      <Card title="Calls to action" testId="admin-post-ctas" action={<Link href="/admin/ctas/" className="text-[12.5px] font-semibold text-brand-700 hover:underline">Edit CTA copy</Link>}>
+      <Card title="Calls to action" testId="admin-post-ctas" action={<Link href="/admin/ctas" className="text-[12.5px] font-semibold text-brand-700 hover:underline">Edit CTA copy</Link>}>
         <Toggle label="In-article audit CTA" checked={form.show_audit_inline} onChange={(v) => set("show_audit_inline", v)} testId="admin-post-cta-inline-toggle" />
         <Toggle label="Sidebar & mobile audit CTA" checked={form.show_audit_sidebar} onChange={(v) => set("show_audit_sidebar", v)} testId="admin-post-cta-sidebar-toggle" />
         <Toggle label="Doctor panel CTA" checked={form.show_doctor_panel} onChange={(v) => set("show_doctor_panel", v)} testId="admin-post-cta-doctor-toggle" />

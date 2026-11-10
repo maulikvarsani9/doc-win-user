@@ -17,7 +17,7 @@ export function AudienceHero({ audience, page, group, icon, image, crumbs, stats
         <Breadcrumbs items={crumbs} />
         <div className="mt-8 grid gap-10 sm:mt-12 lg:mt-14 lg:grid-cols-12 lg:items-center lg:gap-12">
           <div className="reveal lg:col-span-6">
-            <HeroChip href={`/who-we-serve/#${group.id}`} icon={icon} label={group.name} testId="audience-hero-group" />
+            <HeroChip href={`/who-we-serve#${group.id}`} icon={icon} label={group.name} testId="audience-hero-group" />
             <h1 className="display-1 mt-6 sm:mt-7 lg:text-[3.3rem] xl:text-[3.75rem]" data-testid="audience-hero-heading">{page.h1}</h1>
             <p className="lead mt-5 sm:mt-7">{page.intro}</p>
             <div className="cta-row mt-8 sm:mt-10">

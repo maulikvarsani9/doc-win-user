@@ -73,7 +73,7 @@ export function ServicesShowcase({ tabs }: { tabs: readonly Tab[] }) {
           </h2>
           <div className="lg:col-span-5 lg:pl-6">
             <p className="lead">Focus on patient care while we handle your marketing. Every service is built specifically for healthcare providers.</p>
-            <Link href="/services/" className={btn("outline", "md", "mt-6 sm:mt-7")} data-testid="services-view-all">View All Services <ArrowRight aria-hidden /></Link>
+            <Link href="/services" className={btn("outline", "md", "mt-6 sm:mt-7")} data-testid="services-view-all">View All Services <ArrowRight aria-hidden /></Link>
           </div>
         </div>
 

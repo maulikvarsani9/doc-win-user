@@ -10,7 +10,7 @@ export const stepCols: Record<number, string> = { 3: "lg:grid-cols-3", 4: "lg:gr
 
 export function ReviewedBy({ className, text = "Patient-facing work is reviewed by practicing doctors" }: { className?: string; text?: string }) {
   return (
-    <Link href="/about/team/" className={cn("group inline-flex items-center gap-3 text-[13.5px] text-ink-600 sm:text-[14px]", className)} data-testid="reviewed-by-link">
+    <Link href="/about/team" className={cn("group inline-flex items-center gap-3 text-[13.5px] text-ink-600 sm:text-[14px]", className)} data-testid="reviewed-by-link">
       <FaceStack slugs={["wali-rahmani", "nehan-fatima", "yasir-niyazi"]} size="size-8" className="shrink-0" />
       <span className="group-hover:text-ink-900">{text}</span>
     </Link>

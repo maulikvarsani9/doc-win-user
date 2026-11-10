@@ -10,34 +10,34 @@ const columns = [
   {
     title: "Services",
     links: [
-      ["Medical SEO", "/services/medical-seo/"], ["Google Business Profile & Listings", "/services/google-business-profile-listing-management/"],
-      ["Google Ads", "/services/google-ads-healthcare/"], ["Meta Ads", "/services/meta-ads-healthcare/"],
-      ["Medical Website Design", "/services/medical-website-design/"], ["Reputation Management", "/services/healthcare-reputation-management/"],
-      ["All services", "/services/"],
+      ["Medical SEO", "/services/medical-seo"], ["Google Business Profile & Listings", "/services/google-business-profile-listing-management"],
+      ["Google Ads", "/services/google-ads-healthcare"], ["Meta Ads", "/services/meta-ads-healthcare"],
+      ["Medical Website Design", "/services/medical-website-design"], ["Reputation Management", "/services/healthcare-reputation-management"],
+      ["All services", "/services"],
     ],
   },
   {
     title: "Who We Serve",
     links: [
-      ["Medical Practices", "/who-we-serve/doctors-medical-practices/"], ["Dental Practices", "/who-we-serve/dental-practices/"],
-      ["Hospitals & Health Systems", "/who-we-serve/hospitals/"], ["Multi-Location Groups", "/who-we-serve/multi-location-healthcare-groups/"],
-      ["Healthcare SaaS & Telehealth", "/who-we-serve/digital-health/"], ["All industries", "/who-we-serve/"],
+      ["Medical Practices", "/who-we-serve/doctors-medical-practices"], ["Dental Practices", "/who-we-serve/dental-practices"],
+      ["Hospitals & Health Systems", "/who-we-serve/hospitals"], ["Multi-Location Groups", "/who-we-serve/multi-location-healthcare-groups"],
+      ["Healthcare SaaS & Telehealth", "/who-we-serve/digital-health"], ["All industries", "/who-we-serve"],
     ],
   },
   {
     title: "Resources",
     links: [
-      ["Resources & Guides", "/resources/"], ["A Doctor's Guide to Digital Success", "/resources/doctors-guide-to-digital-success/"],
-      ["Blog", "/blogs/"], ["Case Studies", "/case-studies/"],
+      ["Resources & Guides", "/resources"], ["A Doctor's Guide to Digital Success", "/resources/doctors-guide-to-digital-success"],
+      ["Blog", "/blogs"], ["Case Studies", "/case-studies"],
     ],
   },
   {
     title: "Company",
-    links: [["About Us", "/about/"], ["Our Team", "/about/team/"], ["Contact", "/contact/"], ["Free Marketing Audit", "/free-marketing-audit/"]],
+    links: [["About Us", "/about"], ["Our Team", "/about/team"], ["Contact", "/contact"], ["Free Marketing Audit", "/free-marketing-audit"]],
   },
 ];
 
-const legal = [["Privacy Policy", "/privacy-policy/"], ["Cookie Policy", "/cookie-policy/"], ["Terms & Conditions", "/terms-and-conditions/"], ["Disclaimer", "/disclaimer/"]];
+const legal = [["Privacy Policy", "/privacy-policy"], ["Cookie Policy", "/cookie-policy"], ["Terms & Conditions", "/terms-and-conditions"], ["Disclaimer", "/disclaimer"]];
 
 export function SiteFooter() {
   return (

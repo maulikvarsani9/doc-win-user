@@ -12,7 +12,7 @@ export function AboutAudiences() {
         <SectionHeader
           eyebrow="Who we serve"
           title="Built for Healthcare, From Single Practices to Pharma"
-          action={<ArrowLink href="/who-we-serve/" testId="about-audiences-all">See all {audiences.length} audiences</ArrowLink>}
+          action={<ArrowLink href="/who-we-serve" testId="about-audiences-all">See all {audiences.length} audiences</ArrowLink>}
         />
         <div className="mt-10 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {audienceGroups.map((g) => {
@@ -24,7 +24,7 @@ export function AboutAudiences() {
                 <p className="mt-2 flex-1 text-[14.5px] leading-[1.6] text-ink-600">{g.blurb}</p>
                 <ul className="mt-5 space-y-1.5 border-t border-ink-900/[0.07] pt-4">
                   {items.slice(0, 3).map((a) => (
-                    <li key={a.slug}><Link href={`/who-we-serve/${a.slug}/`} className="text-[14px] text-brand-700 underline-offset-4 hover:underline" data-testid={`about-audience-${a.slug}`}>{a.name}</Link></li>
+                    <li key={a.slug}><Link href={`/who-we-serve/${a.slug}`} className="text-[14px] text-brand-700 underline-offset-4 hover:underline" data-testid={`about-audience-${a.slug}`}>{a.name}</Link></li>
                   ))}
                   {items.length > 3 && <li className="text-[13px] text-ink-500">+{items.length - 3} more</li>}
                 </ul>

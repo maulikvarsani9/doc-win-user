@@ -60,7 +60,7 @@ export async function BlogSection() {
           eyebrow="Insights"
           title="Healthcare Marketing Insights & Strategies"
           lead="Practical insights, strategies and updates from our healthcare marketing team and medical reviewers."
-          action={<Link href="/blogs/" className={btn("outline", "lg")} data-testid="blog-explore-all">Explore All Articles <ArrowRight aria-hidden /></Link>}
+          action={<Link href="/blogs" className={btn("outline", "lg")} data-testid="blog-explore-all">Explore All Articles <ArrowRight aria-hidden /></Link>}
         />
         <div className="mt-10 grid gap-4 sm:mt-14 sm:gap-6 lg:grid-cols-12">
           <Featured p={featured} full={!rest.length} />

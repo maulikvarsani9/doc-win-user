@@ -7,14 +7,14 @@ const titleCase = (s: string) => s.split("-").map((w) => w[0].toUpperCase() + w.
 export function plannedMetadata(slug: string[]) {
   const p = plannedByPath(slug.join("/"));
   if (!p) return null;
-  return pageMetadata({ title: `${p.title} | DocWin Digital`, description: p.intro, path: `/${p.path}/`, noindex: true });
+  return pageMetadata({ title: `${p.title} | DocWin Digital`, description: p.intro, path: `/${p.path}`, noindex: true });
 }
 
 export function PlannedDraft({ slug }: { slug: string[] }) {
   const p = plannedByPath(slug.join("/"));
   if (!p) return null;
   const crumbs = [{ name: "Home", path: "/" }, ...slug.map((_, i) => {
-    const path = `/${slug.slice(0, i + 1).join("/")}/`;
+    const path = `/${slug.slice(0, i + 1).join("/")}`;
     return { name: i === slug.length - 1 ? p.title : plannedByPath(slug.slice(0, i + 1).join("/"))?.title ?? titleCase(slug[i]), path };
   })];
   return (

@@ -4,10 +4,10 @@ import { Container, Eyebrow, btn } from "@/components/ui-kit";
 export const metadata = { title: { absolute: "Page Not Found | DocWin Digital" }, robots: { index: false } };
 
 const links = [
-  ["Healthcare marketing services", "/services/"],
-  ["Industries we serve", "/who-we-serve/"],
-  ["Free marketing audit", "/free-marketing-audit/"],
-  ["Contact DocWin", "/contact/"],
+  ["Healthcare marketing services", "/services"],
+  ["Industries we serve", "/who-we-serve"],
+  ["Free marketing audit", "/free-marketing-audit"],
+  ["Contact DocWin", "/contact"],
 ];
 
 export default function NotFound() {

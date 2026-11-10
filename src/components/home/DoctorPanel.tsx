@@ -12,7 +12,7 @@ function PanelStrip({ panel }: { panel: Person[] }) {
     <div className="mt-12 border-t border-ink-900/10 pt-8 sm:mt-16 sm:pt-10 lg:mt-20" data-testid="doctor-panel-strip">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-ink-500">Some of the doctors on our panel</p>
-        <ArrowLink href="/about/team/" testId="doctor-panel-strip-link">Meet the full team</ArrowLink>
+        <ArrowLink href="/about/team" testId="doctor-panel-strip-link">Meet the full team</ArrowLink>
       </div>
       <ul className="no-scrollbar -mx-5 mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-5 px-5 pb-2 sm:-mx-12 sm:mt-7 sm:gap-4 sm:scroll-px-12 sm:px-12 lg:mx-0 lg:grid lg:grid-cols-7 lg:overflow-visible lg:px-0 lg:pb-0">
         {panel.map((p) => (
@@ -43,7 +43,7 @@ export function DoctorPanel({ panel }: { panel: Person[] }) {
               </p>
               <div className="mt-8 flex flex-col gap-5 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
                 <CtaLink kind="contact" className={btn("primary", "lg", "w-full sm:w-auto")} testId="doctor-panel-cta">Book a Strategy Call <ArrowRight aria-hidden /></CtaLink>
-                <Link href="/about/team/" className="group inline-flex items-center gap-3 text-[14px] font-semibold text-ink-800 hover:text-brand-700" data-testid="doctor-panel-team-link">
+                <Link href="/about/team" className="group inline-flex items-center gap-3 text-[14px] font-semibold text-ink-800 hover:text-brand-700" data-testid="doctor-panel-team-link">
                   <FaceStack slugs={["chesta-gupta", "ankit-faujdar", "eshan-rao", "abu-obaida"]} ring="ring-brand-50" />
                   Meet the panel
                 </Link>

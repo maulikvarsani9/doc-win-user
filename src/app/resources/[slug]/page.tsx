@@ -50,7 +50,7 @@ export default async function ResourcePage({ params }: Props) {
     <>
       <section className="bg-paper" data-testid="resource-detail-container">
         <Container className="pb-14 pt-6 sm:pb-20 sm:pt-10">
-          <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Resources", path: "/resources/" }, { name: r.title, path: resourceHref(r.slug) }]} />
+          <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Resources", path: "/resources" }, { name: r.title, path: resourceHref(r.slug) }]} />
           <div className="mt-10 grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="reveal lg:col-span-7">
               {r.type && <span className="inline-flex rounded-full bg-brand-100 px-3 py-1 text-[12.5px] font-semibold text-brand-700" data-testid="resource-type-badge">{r.type.name}</span>}
@@ -73,7 +73,7 @@ export default async function ResourcePage({ params }: Props) {
       )}
       <More r={r} />
       <JsonLd data={{ "@context": "https://schema.org", "@type": "CreativeWork", name: r.title, description: r.description, url: abs(resourceHref(r.slug)),
-        ...(r.cover_image && !r.cover_image.startsWith("/api/") ? { image: abs(r.cover_image) } : {}), isAccessibleForFree: true, publisher: { "@id": abs("/#organization") } }} />
+        ...(r.cover_image && !r.cover_image.startsWith("/api") ? { image: abs(r.cover_image) } : {}), isAccessibleForFree: true, publisher: { "@id": abs("/#organization") } }} />
     </>
   );
 }

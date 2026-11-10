@@ -4,7 +4,7 @@ import { site } from "./src/content/site";
 const origin = new URL(site.url);
 
 const nextConfig: NextConfig = {
-  trailingSlash: true,
+  trailingSlash: false,
   skipTrailingSlashRedirect: true,
   reactStrictMode: true,
   poweredByHeader: false,

@@ -43,7 +43,7 @@ export function ServiceWhy({ page, quotes }: { page: ServicePage; quotes: Testim
       <Container>
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
           <h2 className="display-2 lg:col-span-8">Why Healthcare Organizations Choose DocWin for {page.short}</h2>
-          <div className="lg:col-span-4 lg:justify-self-end"><ArrowLink href="/about/team/" testId="service-why-team-link">Meet our doctor panel</ArrowLink></div>
+          <div className="lg:col-span-4 lg:justify-self-end"><ArrowLink href="/about/team" testId="service-why-team-link">Meet our doctor panel</ArrowLink></div>
         </div>
         <ul className="mt-10 grid gap-3 sm:mt-14 sm:gap-5 md:grid-cols-3">
           {page.why.map((w, i) => {
@@ -73,7 +73,7 @@ export function ServiceRelated({ page }: { page: ServicePage }) {
             const s = serviceBySlug(slug)!;
             return (
               <li key={slug}>
-                <Link href={`/services/${slug}/`} className="group flex h-full flex-col rounded-[1.25rem] bg-paper p-6 transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(11,25,44,0.35)] sm:rounded-[1.5rem] sm:p-7" data-testid={`related-service-${slug}`}>
+                <Link href={`/services/${slug}`} className="group flex h-full flex-col rounded-[1.25rem] bg-paper p-6 transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(11,25,44,0.35)] sm:rounded-[1.5rem] sm:p-7" data-testid={`related-service-${slug}`}>
                   <span className="text-[1.1rem] font-medium leading-snug text-ink-900">{s.name}</span>
                   <span className="mt-2.5 block flex-1 text-[14.5px] leading-[1.6] text-ink-600">{reason}</span>
                   <span className="mt-5 inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand-700">{s.linkLabel} <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-1" /></span>

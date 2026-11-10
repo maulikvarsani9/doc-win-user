@@ -11,13 +11,13 @@ import { pageMetadata, peopleSchema } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Our Team & Medical Review Panel | DocWin Digital",
   description: "Meet the doctors and marketers behind DocWin Digital: co-founders Dr. Wali Rahmani and Arbaz Fatmi, and the practicing doctors on our medical review panel.",
-  path: "/about/team/",
+  path: "/about/team",
 });
 
 const crumbs = [
   { name: "Home", path: "/" },
-  { name: "About Us", path: "/about/" },
-  { name: "Our Team", path: "/about/team/" },
+  { name: "About Us", path: "/about" },
+  { name: "Our Team", path: "/about/team" },
 ];
 
 export const revalidate = 300;

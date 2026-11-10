@@ -15,12 +15,12 @@ import { pageMetadata, peopleSchema, webPageSchema } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "About DocWin Digital | Doctor-Guided Healthcare Marketing",
   description: "DocWin Digital is a healthcare-only marketing agency. Practicing doctors review the content we create. Meet the team and see how we work.",
-  path: "/about/",
+  path: "/about",
 });
 
 const crumbs = [
   { name: "Home", path: "/" },
-  { name: "About Us", path: "/about/" },
+  { name: "About Us", path: "/about" },
 ];
 
 export const revalidate = 300;
@@ -30,7 +30,7 @@ export default async function AboutPage() {
   const people = founders.map((p) => ({ name: p.name, jobTitle: p.role, description: p.bio || p.credential, image: p.photo }));
   return (
     <>
-      <JsonLd data={webPageSchema("AboutPage", "About DocWin Digital", "/about/")} />
+      <JsonLd data={webPageSchema("AboutPage", "About DocWin Digital", "/about")} />
       <JsonLd data={peopleSchema(people)} />
       <AboutHero crumbs={crumbs} founders={founders} />
       <AboutProofBand />

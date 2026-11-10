@@ -38,8 +38,8 @@ function Group({ title, id, all, sections }: { title: string; id: string; all?: 
   );
 }
 
-const serviceSections = serviceCategories.map((c) => ({ name: c.name, links: servicesIn(c.id).map((s) => ({ href: `/services/${s.slug}/`, label: s.name })) }));
-const audienceSections = audienceGroups.map((g) => ({ name: g.name, links: audiencesIn(g.id).map((a) => ({ href: `/who-we-serve/${a.slug}/`, label: a.name })) }));
+const serviceSections = serviceCategories.map((c) => ({ name: c.name, links: servicesIn(c.id).map((s) => ({ href: `/services/${s.slug}`, label: s.name })) }));
+const audienceSections = audienceGroups.map((g) => ({ name: g.name, links: audiencesIn(g.id).map((a) => ({ href: `/who-we-serve/${a.slug}`, label: a.name })) }));
 const resourceSections = [{ links: [...resourceLinks, ebookLink] }];
 const aboutSections = [{ links: aboutLinks }];
 
@@ -66,11 +66,11 @@ export function MobileNav() {
         data-testid="mobile-menu"
       >
         <div key={session}>
-          <Group title="Services" id="services" all={{ href: "/services/", label: "View all services" }} sections={serviceSections} />
-          <Group title="Who We Serve" id="who-we-serve" all={{ href: "/who-we-serve/", label: "View all industries" }} sections={audienceSections} />
+          <Group title="Services" id="services" all={{ href: "/services", label: "View all services" }} sections={serviceSections} />
+          <Group title="Who We Serve" id="who-we-serve" all={{ href: "/who-we-serve", label: "View all industries" }} sections={audienceSections} />
           <Group title="Resources" id="resources" sections={resourceSections} />
           <Group title="About" id="about" sections={aboutSections} />
-          <Link href="/contact/" className="flex items-center justify-between border-b border-ink-100 py-[18px] text-[1.15rem] font-medium tracking-[-0.01em] text-ink-900" data-testid="mobile-contact-us">
+          <Link href="/contact" className="flex items-center justify-between border-b border-ink-100 py-[18px] text-[1.15rem] font-medium tracking-[-0.01em] text-ink-900" data-testid="mobile-contact-us">
             Contact Us <ArrowRight aria-hidden className="size-5 text-ink-400" />
           </Link>
         </div>

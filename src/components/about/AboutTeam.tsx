@@ -8,7 +8,7 @@ export function AboutTeam({ founders, panel }: { founders: Person[]; panel: Pers
   return (
     <section className="bg-white py-16 sm:py-24 lg:py-32" data-testid="about-team">
       <Container>
-        <SectionHeader eyebrow="Our team" title="Marketers and Doctors, Working Together" action={<ArrowLink href="/about/team/" testId="about-team-link">Meet the full team</ArrowLink>} />
+        <SectionHeader eyebrow="Our team" title="Marketers and Doctors, Working Together" action={<ArrowLink href="/about/team" testId="about-team-link">Meet the full team</ArrowLink>} />
         <div className="mt-10 grid gap-5 sm:mt-14 md:grid-cols-3 lg:gap-6">
           {founders.map((f) => (
             <figure key={f.slug} className="group overflow-hidden rounded-[1.5rem] bg-paper ring-1 ring-ink-900/[0.05] sm:rounded-[2rem]" data-testid={`about-founder-${f.slug}`}>
@@ -29,7 +29,7 @@ export function AboutTeam({ founders, panel }: { founders: Person[]; panel: Pers
             </div>
             <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
               <FaceStack people={panel} size="size-9" ring="ring-brand-600" />
-              <ArrowLink href="/about/team/#medical-review-panel" tone="light" testId="about-panel-link">Meet the panel</ArrowLink>
+              <ArrowLink href="/about/team#medical-review-panel" tone="light" testId="about-panel-link">Meet the panel</ArrowLink>
             </div>
           </div>
         </div>

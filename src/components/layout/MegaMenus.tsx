@@ -30,7 +30,7 @@ function DoctorAside() {
       <div>
         <FaceStack slugs={["wali-rahmani", "nehan-fatima", "yasir-niyazi", "pooja-singh"]} ring="ring-ink-900" size="size-9" />
         <p className="mt-5 text-[1.15rem] leading-snug tracking-[-0.01em]">Every patient-facing message is reviewed by a practicing doctor.</p>
-        <Link href="/about/team/" className="mt-3 inline-block text-[13.5px] text-ink-300 underline-offset-4 hover:text-white hover:underline" data-testid="mega-services-panel-link">Meet our doctor panel</Link>
+        <Link href="/about/team" className="mt-3 inline-block text-[13.5px] text-ink-300 underline-offset-4 hover:text-white hover:underline" data-testid="mega-services-panel-link">Meet our doctor panel</Link>
         <ul className="mt-6 space-y-2.5 border-t border-white/10 pt-5 text-[13.5px] text-ink-200">
           {["Medical accuracy", "Ethical communication", "Clinical credibility"].map((t) => (
             <li key={t} className="flex items-center gap-2"><Check aria-hidden className="size-3.5 text-signal-400" strokeWidth={3} />{t}</li>
@@ -75,7 +75,7 @@ export function MegaServices() {
             <ul className="mt-5 grid grid-cols-2 gap-1">
               {servicesIn(c.id).map((s) => (
                 <li key={s.slug}>
-                  <Link href={`/services/${s.slug}/`} className="block rounded-xl p-3 transition-colors duration-150 hover:bg-white" data-testid={`mega-service-${s.slug}`}>
+                  <Link href={`/services/${s.slug}`} className="block rounded-xl p-3 transition-colors duration-150 hover:bg-white" data-testid={`mega-service-${s.slug}`}>
                     <span className="block text-[14.5px] font-medium leading-snug text-ink-900">{s.name}</span>
                     <span className="mt-1 line-clamp-2 block text-[13px] leading-relaxed text-ink-500">{s.description}</span>
                   </Link>
@@ -85,7 +85,7 @@ export function MegaServices() {
           </div>
         ))}
         <div className="mt-4 border-t border-ink-900/[0.06] pt-4">
-          <AllLink href="/services/" testId="mega-services-all">Explore all {services.length} services</AllLink>
+          <AllLink href="/services" testId="mega-services-all">Explore all {services.length} services</AllLink>
         </div>
       </div>
       <DoctorAside />
@@ -103,7 +103,7 @@ export function MegaAudiences() {
             <ul>
               {audiencesIn(g.id).map((a) => (
                 <li key={a.slug}>
-                  <Link href={`/who-we-serve/${a.slug}/`} className="block py-[5px] text-[14.5px] leading-snug text-ink-700 transition-colors hover:text-brand-600" data-testid={`mega-audience-${a.slug}`}>{a.name}</Link>
+                  <Link href={`/who-we-serve/${a.slug}`} className="block py-[5px] text-[14.5px] leading-snug text-ink-700 transition-colors hover:text-brand-600" data-testid={`mega-audience-${a.slug}`}>{a.name}</Link>
                 </li>
               ))}
             </ul>
@@ -115,7 +115,7 @@ export function MegaAudiences() {
           <ClientFaces count={4} size="size-9" ring="ring-paper" />
           <p className="mt-5 text-[1.15rem] leading-snug tracking-[-0.01em] text-ink-900">From solo practices to health systems and healthcare companies.</p>
         </div>
-        <div className="mt-8"><AllLink href="/who-we-serve/" testId="mega-audiences-all">Explore all industries</AllLink></div>
+        <div className="mt-8"><AllLink href="/who-we-serve" testId="mega-audiences-all">Explore all industries</AllLink></div>
       </div>
     </div>
   );
@@ -161,7 +161,7 @@ export function MenuAbout() {
   return (
     <div className="grid grid-cols-[1fr_220px] gap-2 p-3">
       <LinkList links={aboutLinks} testPrefix="menu-about" />
-      <Link href="/about/team/" className="group flex flex-col justify-between rounded-2xl bg-paper p-5" data-testid="menu-about-founders">
+      <Link href="/about/team" className="group flex flex-col justify-between rounded-2xl bg-paper p-5" data-testid="menu-about-founders">
         <FaceStack slugs={["wali-rahmani", "arbaz-fatmi"]} ring="ring-paper" size="size-11" />
         <span className="mt-6 block text-[14.5px] leading-snug text-ink-900">Founded by a doctor and a healthcare marketer.</span>
         <span className="mt-3 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-brand-700">Meet the team <ArrowRight aria-hidden className="size-3.5 transition-transform group-hover:translate-x-0.5" /></span>

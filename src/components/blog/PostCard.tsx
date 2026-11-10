@@ -8,8 +8,8 @@ import { Avatar } from "./Avatar";
 export const formatDate = (iso?: string | null) =>
   iso ? new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }).format(new Date(iso)) : "";
 
-export const postHref = (slug: string) => `/blogs/${slug}/`;
-export const authorHref = (slug: string) => `/blogs/author/${slug}/`;
+export const postHref = (slug: string) => `/blogs/${slug}`;
+export const authorHref = (slug: string) => `/blogs/author/${slug}`;
 
 export function Byline({ post, dark, className }: { post: Card; dark?: boolean; className?: string }) {
   const a = post.author;

@@ -26,7 +26,7 @@ export default function AdminResourcesPage() {
   return (
     <>
       <PageHeader title="Resources" text="Ebooks, checklists, templates and tools for the Resources hub."
-        action={<Link href="/admin/resources/new/" className={btnCls("brand")} data-testid="admin-resource-create-btn"><Plus />New resource</Link>} />
+        action={<Link href="/admin/resources/new" className={btnCls("brand")} data-testid="admin-resource-create-btn"><Plus />New resource</Link>} />
       <div className="px-5 pb-12 sm:px-8">
         {!data ? <Loading /> : (
           <div className="overflow-x-auto rounded-xl bg-white ring-1 ring-ink-900/[0.08]">
@@ -37,14 +37,14 @@ export default function AdminResourcesPage() {
               <tbody>
                 {data.map((r) => (
                   <tr key={r.id} className="border-t border-ink-900/[0.06] hover:bg-ink-50/60" data-testid={`admin-resource-row-${r.slug}`}>
-                    <td className="max-w-[360px] px-4 py-3"><Link href={`/admin/resources/${r.id}/`} className="line-clamp-2 font-semibold text-ink-900 hover:text-brand-700" data-testid={`admin-resource-edit-${r.slug}`}>{r.title}</Link></td>
+                    <td className="max-w-[360px] px-4 py-3"><Link href={`/admin/resources/${r.id}`} className="line-clamp-2 font-semibold text-ink-900 hover:text-brand-700" data-testid={`admin-resource-edit-${r.slug}`}>{r.title}</Link></td>
                     <td className="whitespace-nowrap px-4 py-3 text-ink-600">{typeName(r.type_id)}</td>
                     <td className="whitespace-nowrap px-4 py-3 text-ink-600">{DELIVERY[r.delivery]}</td>
                     <td className="px-4 py-3"><StatusBadge status={r.status} testId={`admin-resource-status-${r.slug}`} /></td>
                     <td className="whitespace-nowrap px-4 py-3 text-ink-500">{fmtDate(r.updated_at)}</td>
                     <td className="px-4 py-3">
                       <div className="flex justify-end gap-1">
-                        {r.status === "published" && <a href={`/resources/${r.slug}/`} target="_blank" rel="noreferrer" className={btnCls("ghost", "sm")} aria-label="View live" data-testid={`admin-resource-view-${r.slug}`}><ExternalLink /></a>}
+                        {r.status === "published" && <a href={`/resources/${r.slug}`} target="_blank" rel="noreferrer" className={btnCls("ghost", "sm")} aria-label="View live" data-testid={`admin-resource-view-${r.slug}`}><ExternalLink /></a>}
                         <Confirm testId={`admin-resource-delete-${r.slug}`} title="Delete this resource?" text={`“${r.title}” will be permanently deleted.`} onConfirm={() => remove(r)}
                           trigger={<button type="button" className={btnCls("ghost", "sm", "text-rose-600")} aria-label="Delete" data-testid={`admin-resource-delete-${r.slug}-btn`}><Trash2 /></button>} />
                       </div>

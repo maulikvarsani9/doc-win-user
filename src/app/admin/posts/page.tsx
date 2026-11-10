@@ -14,7 +14,7 @@ function Row({ p, author, onDelete }: { p: AdminPost; author: string; onDelete: 
   return (
     <tr className="border-t border-ink-900/[0.06] hover:bg-ink-50/60" data-testid={`admin-post-row-${p.slug}`}>
       <td className="max-w-[420px] px-4 py-3">
-        <Link href={`/admin/posts/${p.id}/`} className="line-clamp-2 font-semibold text-ink-900 hover:text-brand-700" data-testid={`admin-post-edit-${p.slug}`}>{p.title}</Link>
+        <Link href={`/admin/posts/${p.id}`} className="line-clamp-2 font-semibold text-ink-900 hover:text-brand-700" data-testid={`admin-post-edit-${p.slug}`}>{p.title}</Link>
         <span className="mt-0.5 block truncate text-[12.5px] text-ink-400">/blogs/{p.slug}/</span>
       </td>
       <td className="px-4 py-3"><StatusBadge status={p.status} at={p.published_at} testId={`admin-post-status-${p.slug}`} /></td>
@@ -22,7 +22,7 @@ function Row({ p, author, onDelete }: { p: AdminPost; author: string; onDelete: 
       <td className="whitespace-nowrap px-4 py-3 text-ink-500">{fmtDate(p.updated_at)}</td>
       <td className="px-4 py-3">
         <div className="flex justify-end gap-1">
-          {p.status === "published" && !isFuture(p.published_at) && <a href={`/blogs/${p.slug}/`} target="_blank" rel="noreferrer" className={btnCls("ghost", "sm")} aria-label="View live" data-testid={`admin-post-view-${p.slug}`}><ExternalLink /></a>}
+          {p.status === "published" && !isFuture(p.published_at) && <a href={`/blogs/${p.slug}`} target="_blank" rel="noreferrer" className={btnCls("ghost", "sm")} aria-label="View live" data-testid={`admin-post-view-${p.slug}`}><ExternalLink /></a>}
           <Confirm testId={`admin-post-delete-${p.slug}`} title="Delete this post?" text={`“${p.title}” will be permanently deleted.`} onConfirm={onDelete}
             trigger={<button type="button" className={btnCls("ghost", "sm", "text-rose-600")} aria-label="Delete" data-testid={`admin-post-delete-${p.slug}-btn`}><Trash2 /></button>} />
         </div>
@@ -50,7 +50,7 @@ export default function AdminPostsPage() {
   return (
     <>
       <PageHeader title="Blog posts" text="Write, publish and manage articles. Only published posts appear on the site."
-        action={<Link href="/admin/posts/new/" className={btnCls("brand")} data-testid="admin-post-create-btn"><Plus />New post</Link>} />
+        action={<Link href="/admin/posts/new" className={btnCls("brand")} data-testid="admin-post-create-btn"><Plus />New post</Link>} />
       <div className="space-y-4 px-5 pb-12 sm:px-8">
         <div className="flex flex-wrap gap-3">
           <label className="relative min-w-[240px] flex-1 sm:max-w-sm">

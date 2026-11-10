@@ -56,7 +56,7 @@ export function ServiceHero({ page, category, icon, crumbs, stats, image }: { pa
         <Breadcrumbs items={crumbs} />
         <div className="mt-8 grid gap-12 sm:mt-12 lg:mt-14 lg:grid-cols-12 lg:items-center lg:gap-10">
           <div className="reveal lg:col-span-7 lg:pr-6">
-            <HeroChip href={`/services/#${category.id}`} icon={icon} label={category.name} testId="service-hero-category" />
+            <HeroChip href={`/services#${category.id}`} icon={icon} label={category.name} testId="service-hero-category" />
             <h1 className="display-1 mt-6 sm:mt-7 lg:text-[3.4rem] xl:text-[3.85rem]" data-testid="service-hero-heading">{page.h1}</h1>
             <p className="lead mt-5 max-w-2xl sm:mt-7">{page.intro}</p>
             <div className="cta-row mt-8 sm:mt-10">

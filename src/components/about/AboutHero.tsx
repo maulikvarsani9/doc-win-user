@@ -34,7 +34,7 @@ export function AboutHero({ crumbs, founders }: { crumbs: Crumb[]; founders: Per
             <p className="lead mt-6 max-w-2xl sm:mt-7">{aboutHero.lead}</p>
             <div className="cta-row mt-8 sm:mt-10">
               <CtaLink kind="contact" className={btn("dark", "lg")} testId="about-cta-strategy">Book a Strategy Call <ArrowRight aria-hidden /></CtaLink>
-              <Link href="/about/team/" className={btn("outline", "lg")} data-testid="about-cta-team">Meet the Team</Link>
+              <Link href="/about/team" className={btn("outline", "lg")} data-testid="about-cta-team">Meet the Team</Link>
             </div>
           </div>
           <div className="reveal reveal-2 relative lg:col-span-5">

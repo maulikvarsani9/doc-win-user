@@ -20,7 +20,7 @@ export function relatedPages(topics: string[], specialities: string[]) {
   const services = [...new Set(topics.flatMap((t) => topicServices[t] ?? []))].map(serviceBySlug).filter((s) => s && s.status === "ready-for-review");
   const industries = specialities.map(audienceBySlug).filter((a) => a && a.status === "ready-for-review");
   return [
-    ...services.map((s) => ({ href: `/services/${s!.slug}/`, label: s!.name, slug: s!.slug })),
-    ...industries.map((a) => ({ href: `/who-we-serve/${a!.slug}/`, label: a!.linkLabel, slug: a!.slug })),
+    ...services.map((s) => ({ href: `/services/${s!.slug}`, label: s!.name, slug: s!.slug })),
+    ...industries.map((a) => ({ href: `/who-we-serve/${a!.slug}`, label: a!.linkLabel, slug: a!.slug })),
   ].slice(0, 5);
 }

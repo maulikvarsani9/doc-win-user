@@ -25,14 +25,14 @@ export function AuthorEditor({ id }: { id?: string }) {
 
   return (
     <div data-testid="admin-author-editor">
-      <EditorBar prefix="admin-author" back="/admin/authors/" backLabel="People" heading={id ? f.name || "Edit person" : "Add person"} dirty={e.dirty} busy={e.busy} isNew={!f.id}
-        live={`/blogs/author/${f.slug}/`} onSave={e.actions.save} onDelete={e.actions.remove} deleteText="People who are the author or reviewer of a post can't be deleted until those posts are reassigned." />
+      <EditorBar prefix="admin-author" back="/admin/authors" backLabel="People" heading={id ? f.name || "Edit person" : "Add person"} dirty={e.dirty} busy={e.busy} isNew={!f.id}
+        live={`/blogs/author/${f.slug}`} onSave={e.actions.save} onDelete={e.actions.remove} deleteText="People who are the author or reviewer of a post can't be deleted until those posts are reassigned." />
       <div className="grid gap-5 px-5 py-6 sm:px-8 xl:grid-cols-[minmax(0,1fr)_370px]">
         <div className="space-y-5">
           <Card title="Profile" testId="admin-author-profile">
             <div className="grid gap-4 sm:grid-cols-2">
               <Field label="Full name"><Input value={f.name} onChange={(ev) => onName(ev.target.value)} placeholder="Dr. Jane Smith" data-testid="admin-author-name-input" /></Field>
-              <Field label="Profile URL" hint={`docwindigital.com/blogs/author/${f.slug || "…"}/`}>
+              <Field label="Profile URL" hint={`docwindigital.com/blogs/author/${f.slug || "…"}`}>
                 <Input value={f.slug} onChange={(ev) => { setAutoSlug(false); e.set("slug", slugify(ev.target.value)); }} data-testid="admin-author-slug-input" />
               </Field>
               <Field label="Credentials"><Input value={f.credential} onChange={(ev) => e.set("credential", ev.target.value)} placeholder="MD, MS Orthopedics" data-testid="admin-author-credential-input" /></Field>
@@ -62,7 +62,7 @@ export function AuthorEditor({ id }: { id?: string }) {
           </Card>
           <Card title="Author page SEO" testId="admin-author-seo">
             <SeoFields prefix="admin-author" title={f.seo_title} description={f.seo_description} fallbackTitle={f.name ? `${f.name}${f.credential ? `, ${f.credential}` : ""}: Articles & Insights | DocWin Digital` : ""}
-              fallbackDescription={f.bio} path={`/blogs/author/${f.slug || "name"}/`} onTitle={(v) => e.set("seo_title", v)} onDescription={(v) => e.set("seo_description", v)} />
+              fallbackDescription={f.bio} path={`/blogs/author/${f.slug || "name"}`} onTitle={(v) => e.set("seo_title", v)} onDescription={(v) => e.set("seo_description", v)} />
           </Card>
         </div>
       </div>

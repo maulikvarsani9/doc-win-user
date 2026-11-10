@@ -38,7 +38,7 @@ const AuditCta = z.object({
   inline_enabled: z.boolean().default(true), inline_after_h2: z.number().int().min(1).max(20).default(2),
   inline_headline: d("Before You Spend More on Marketing…", 120),
   inline_body: d("Receive a free personalized marketing audit that evaluates 50 major touchpoints across 10 categories influencing how patients discover and choose your practice.", 400),
-  inline_button: d("Get My Free Marketing Audit", 60), href: d("/free-marketing-audit/", 300),
+  inline_button: d("Get My Free Marketing Audit", 60), href: d("/free-marketing-audit", 300),
   images: z.array(z.string()).max(4).default(() => [...REPORT_IMAGES]),
   sidebar_enabled: z.boolean().default(true), sidebar_headline: d("Get a Full Diagnosis of Your Marketing", 120),
   sidebar_subheadline: d("A free, category-by-category breakdown across 50 checkpoints.", 200), sidebar_body: d("Your strengths, weaknesses, and a clear action plan.", 300),
@@ -50,7 +50,7 @@ const DoctorCta = z.object({
   headline: d("Every DocWin Client Is Paired With a Practicing Doctor", 120),
   body: d("Who reviews patient-facing content for medical accuracy, ethical communication, and clinical credibility before it goes live.", 400),
   supporting: d("Because in healthcare marketing, one inaccurate claim can damage years of trust.", 300),
-  capsule: d("10+ Practicing Doctors on Our Review Panel", 80), button: d("Have Questions? Let's Chat", 60), href: d("/contact/", 300),
+  capsule: d("10+ Practicing Doctors on Our Review Panel", 80), button: d("Have Questions? Let's Chat", 60), href: d("/contact", 300),
   note: d("Medical review covers clinical accuracy and responsible communication. It isn't legal or regulatory advice.", 300),
 });
 

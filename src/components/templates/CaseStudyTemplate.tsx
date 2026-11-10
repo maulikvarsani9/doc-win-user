@@ -26,7 +26,7 @@ function Facts({ cs }: { cs: CaseStudy }) {
       <p className="mt-7 border-t border-ink-900/10 pt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-ink-500">Services used</p>
       <ul className="mt-3 space-y-2">
         {cs.services.map((slug) => (
-          <li key={slug}><Link href={`/services/${slug}/`} className="text-[15px] font-medium text-brand-700 hover:underline">{serviceBySlug(slug)?.name}</Link></li>
+          <li key={slug}><Link href={`/services/${slug}`} className="text-[15px] font-medium text-brand-700 hover:underline">{serviceBySlug(slug)?.name}</Link></li>
         ))}
       </ul>
       <CtaLink kind="contact" className={btn("dark", "md", "mt-8 w-full")} testId="case-study-aside-cta">Discuss a Similar Project</CtaLink>
@@ -39,7 +39,7 @@ function Hero({ cs }: { cs: CaseStudy }) {
     <section className="sm:px-5" data-testid="case-study-hero">
       <div className="panel-grid mx-auto max-w-[1440px] bg-ink-900 text-white sm:rounded-b-[2.75rem]">
         <Container className="pb-14 pt-8 sm:pb-20 sm:pt-12 lg:pb-24">
-          <div className="[&_a]:text-ink-300 [&_span]:text-ink-200"><Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Case Studies", path: "/case-studies/" }, { name: cs.client, path: `/case-studies/${cs.slug}/` }]} /></div>
+          <div className="[&_a]:text-ink-300 [&_span]:text-ink-200"><Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Case Studies", path: "/case-studies" }, { name: cs.client, path: `/case-studies/${cs.slug}` }]} /></div>
           <Eyebrow tone="light" className="mt-10">{cs.client} · {cs.industry}</Eyebrow>
           <h1 className="display-1 mt-5 max-w-4xl text-white lg:text-[3.6rem]" data-testid="case-study-heading">{cs.headline}</h1>
           <p className="lead mt-6 max-w-2xl text-ink-200">{cs.summary}</p>

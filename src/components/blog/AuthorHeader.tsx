@@ -9,7 +9,7 @@ export function AuthorHeader({ author: a, count }: { author: Author; count: numb
   return (
     <section className="border-b border-ink-900/[0.06] bg-paper" data-testid="author-profile-header">
       <Container className="pb-12 pt-6 sm:pb-16 sm:pt-10">
-        <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blogs/" }, { name: a.name, path: authorHref(a.slug) }]} />
+        <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blogs" }, { name: a.name, path: authorHref(a.slug) }]} />
         <div className="reveal mt-10 flex flex-col gap-7 sm:mt-12 md:flex-row md:items-center md:gap-10">
           <Avatar name={a.name} src={a.avatar || a.photo} size={144} className="ring-[6px] ring-white shadow-[0_24px_50px_-24px_rgba(11,25,44,0.5)]" testId="author-avatar-img" />
           <div className="max-w-3xl">

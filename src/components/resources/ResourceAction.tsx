@@ -72,7 +72,7 @@ export function ResourceAction({ r }: { r: Resource }) {
     <div className={shell} data-testid="resource-action-page">
       <p className="font-display text-[1.4rem] leading-tight text-ink-900">Want this applied to your practice?</p>
       <p className="mt-2 text-[14.5px] text-ink-600">Get a free audit of the touchpoints patients use to choose you.</p>
-      <Link href="/free-marketing-audit/" className={btn("signal", "lg", "mt-6 w-full")} data-testid="resource-audit-btn">Get My Free Marketing Audit</Link>
+      <Link href="/free-marketing-audit" className={btn("signal", "lg", "mt-6 w-full")} data-testid="resource-audit-btn">Get My Free Marketing Audit</Link>
     </div>
   );
 }

@@ -33,10 +33,10 @@ export default async function ResourcesPage({ searchParams }: { searchParams: Se
   const used = <T extends { count: number }>(t: T[]) => t.filter((x) => x.count > 0);
   return (
     <>
-      {!filtered && s.page === 1 && <JsonLd data={webPageSchema("CollectionPage", "Healthcare Marketing Resources & Guides", "/resources/")} />}
-      <ListingHero crumbs={[{ name: "Home", path: "/" }, { name: "Resources", path: "/resources/" }]} eyebrow="Free resources" title="Healthcare Marketing Resources & Guides"
+      {!filtered && s.page === 1 && <JsonLd data={webPageSchema("CollectionPage", "Healthcare Marketing Resources & Guides", "/resources")} />}
+      <ListingHero crumbs={[{ name: "Home", path: "/" }, { name: "Resources", path: "/resources" }]} eyebrow="Free resources" title="Healthcare Marketing Resources & Guides"
         lead="Practical guides, checklists and templates for healthcare organizations planning their marketing, reviewed by practicing doctors."
-        action="/resources/" q={s.q} hidden={{ type: s.type, topic: s.topic }} placeholder="Search resources" testId="resources-hero" />
+        action="/resources" q={s.q} hidden={{ type: s.type, topic: s.topic }} placeholder="Search resources" testId="resources-hero" />
       <FilterRows testId="resource-filters" rows={[
         { label: "Type", allLabel: "All types", terms: used(types), active: s.type, testId: "resource-type-filter", href: (slug) => resourcesHref({ type: slug, topic: s.topic, q: s.q }) },
         { label: "Topics", allLabel: "All topics", terms: used(topics), active: s.topic, testId: "resource-topic-filter", href: (slug) => resourcesHref({ type: s.type, topic: slug, q: s.q }) },
@@ -60,8 +60,8 @@ export default async function ResourcesPage({ searchParams }: { searchParams: Se
           ) : (
             <div className="mt-8">
               <EmptyState testId="resource-empty-state" {...(filtered
-                ? { title: "No resources match these filters", text: "Try a different type or topic, or clear your search.", href: "/resources/", label: "Clear filters" }
-                : { title: "Resources are on their way", text: "We're preparing practical guides and templates. In the meantime, read the latest from our blog.", href: "/blogs/", label: "Browse the blog" })} />
+                ? { title: "No resources match these filters", text: "Try a different type or topic, or clear your search.", href: "/resources", label: "Clear filters" }
+                : { title: "Resources are on their way", text: "We're preparing practical guides and templates. In the meantime, read the latest from our blog.", href: "/blogs", label: "Browse the blog" })} />
             </div>
           )}
           <Pagination page={list.page} pages={list.pages} href={(page) => resourcesHref({ ...s, page })} testId="resources-pagination" />

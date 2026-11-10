@@ -13,22 +13,32 @@ interface PageSeo {
   article?: { publishedTime?: string; modifiedTime?: string; authors?: string[]; tags?: string[] };
 }
 
+export function cleanPath(path: string) {
+  if (/^https?:\/\//.test(path)) return path;
+  const hashAt = path.indexOf("#");
+  const hash = hashAt >= 0 ? path.slice(hashAt) : "";
+  const [pathname, query] = (hashAt >= 0 ? path.slice(0, hashAt) : path).split("?");
+  const clean = !pathname || pathname === "/" ? "/" : pathname.replace(/\/+$/, "") || "/";
+  return `${clean}${query ? `?${query}` : ""}${hash}`;
+}
+
 export function pageMetadata({ title, description, path, noindex, image, article }: PageSeo): Metadata {
+  const url = cleanPath(path);
   const index = site.allowIndexing && !noindex;
   const img = typeof image === "string" ? { url: image } : image ?? { url: site.ogImage, width: 1200, height: 630 };
   const images = [{ alt: title, ...img }];
-  const og = { siteName: site.name, locale: "en_US", title, description, url: path, images };
+  const og = { siteName: site.name, locale: "en_US", title, description, url, images };
   return {
     title: { absolute: title },
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: url },
     robots: index ? { index: true, follow: true } : { index: false, follow: true },
     openGraph: article ? { ...og, type: "article", ...article } : { ...og, type: "website" },
     twitter: { card: "summary_large_image", title, description, images: images.map((i) => i.url) },
   };
 }
 
-export const abs = (path: string) => (/^https?:\/\//.test(path) ? path : `${site.url}${path}`);
+export const abs = (path: string) => (/^https?:\/\//.test(path) ? path : `${site.url}${cleanPath(path)}`);
 export const brandTitle = (t: string) => (/docwin/i.test(t) || t.length + site.name.length + 3 > 60 ? t : `${t} | ${site.name}`);
 
 type SchemaPerson = { name: string; slug: string; credential?: string; role?: string; bio?: string; avatar?: string; linkedin?: string };
@@ -37,7 +47,7 @@ export const personSchema = (p: SchemaPerson) => ({
   "@type": "Person",
   "@id": abs(`/blogs/author/${p.slug}/#person`),
   name: p.name,
-  url: abs(`/blogs/author/${p.slug}/`),
+  url: abs(`/blogs/author/${p.slug}`),
   ...(p.role ? { jobTitle: p.role } : {}),
   ...(p.credential ? { honorificSuffix: p.credential } : {}),
   ...(p.bio ? { description: p.bio } : {}),

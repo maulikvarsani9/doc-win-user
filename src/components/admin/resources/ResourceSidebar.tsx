@@ -22,7 +22,7 @@ function Delivery({ form, set }: Props) {
   const { data: types = [] } = useSWR<AdminTerm[]>("/admin/terms?kind=resource_type");
   return (
     <Card title="Type & delivery" testId="admin-resource-delivery">
-      <Field label="Resource type" hint={<>Manage types in <Link href="/admin/tags/" className="font-semibold text-brand-700 hover:underline">Topics &amp; specialities</Link>.</>}>
+      <Field label="Resource type" hint={<>Manage types in <Link href="/admin/tags" className="font-semibold text-brand-700 hover:underline">Topics &amp; specialities</Link>.</>}>
         <SelectInput value={form.type_id} onChange={(v) => set("type_id", v)} options={types.map((t) => ({ value: t.id!, label: t.name }))} placeholder="Choose a type…" testId="admin-resource-type-select" />
       </Field>
       <div role="radiogroup" aria-label="Delivery" className="grid gap-2">
@@ -60,7 +60,7 @@ export function ResourceSidebar({ form, set }: Props) {
       </Card>
       <Card title="SEO" testId="admin-resource-seo">
         <SeoFields prefix="admin-resource" title={form.seo_title} description={form.seo_description} fallbackTitle={form.title ? `${form.title} | DocWin Digital` : ""}
-          fallbackDescription={form.description} path={`/resources/${form.slug || "your-resource"}/`} onTitle={(v) => set("seo_title", v)} onDescription={(v) => set("seo_description", v)} />
+          fallbackDescription={form.description} path={`/resources/${form.slug || "your-resource"}`} onTitle={(v) => set("seo_title", v)} onDescription={(v) => set("seo_description", v)} />
         <Toggle label="Hide from search engines" checked={form.noindex} onChange={(v) => set("noindex", v)} testId="admin-resource-noindex-toggle" />
       </Card>
     </div>

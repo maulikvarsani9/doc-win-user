@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, FileText, Lock } from "lucide-react";
 import { media, type ResourceCard as Card } from "@/lib/cms-types";
 
-export const resourceHref = (slug: string) => `/resources/${slug}/`;
+export const resourceHref = (slug: string) => `/resources/${slug}`;
 const LABELS = { gated: "Get the free copy", download: "Download free", external: "Open resource", page: "Read the guide" };
 export const actionLabel = (r: Card) => r.cta_label || LABELS[r.delivery];
 

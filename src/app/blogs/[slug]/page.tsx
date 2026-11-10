@@ -11,7 +11,7 @@ type Props = { params: Promise<{ slug: string }> };
 
 async function load(slug: string) {
   const res = await getPost(slug);
-  if (isMoved(res)) permanentRedirect(`/blogs/${res.redirect}/`);
+  if (isMoved(res)) permanentRedirect(`/blogs/${res.redirect}`);
   return res;
 }
 
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props) {
   return pageMetadata({
     title: brandTitle(p.seo_title || p.title),
     description: p.seo_description || p.excerpt || p.subtitle,
-    path: `/blogs/${p.slug}/`,
+    path: `/blogs/${p.slug}`,
     noindex: p.noindex,
     image: p.og_image || p.cover_image || undefined,
     article: { publishedTime: p.published_at ?? undefined, modifiedTime: p.updated_at, authors: p.author ? [p.author.name] : [], tags: p.topics.map((t) => t.name) },
@@ -43,7 +43,7 @@ export default async function BlogPostPage({ params }: Props) {
     <>
       <ArticleView post={post} ctas={ctas} faces={panel} />
       <JsonLd data={blogPostingSchema({
-        title: post.title, description: post.seo_description || post.excerpt, path: `/blogs/${post.slug}/`, image: post.cover_image || undefined,
+        title: post.title, description: post.seo_description || post.excerpt, path: `/blogs/${post.slug}`, image: post.cover_image || undefined,
         published: post.published_at, modified: post.updated_at, author: post.author, reviewer: post.reviewer,
         keywords: [...post.topics, ...post.specialities].map((t) => t.name),
       })} />

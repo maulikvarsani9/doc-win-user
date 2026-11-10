@@ -25,7 +25,7 @@ export async function BlogListing({ state, crumbs, eyebrow, title, lead, showSec
   const gridTitle = state.q ? `Results for “${state.q}”` : filtered ? "Articles" : "Latest articles";
   return (
     <>
-      <ListingHero crumbs={crumbs} eyebrow={eyebrow} title={title} lead={lead} action="/blogs/" q={state.q}
+      <ListingHero crumbs={crumbs} eyebrow={eyebrow} title={title} lead={lead} action="/blogs" q={state.q}
         hidden={{ topic: state.topic, speciality: state.speciality }} placeholder="Search articles" testId="blog-hero" />
       <FilterRows testId="blog-filters" rows={[
         { label: "Topics", allLabel: "All topics", terms: terms.topics, active: state.topic, testId: "blog-topic-filter", href: (slug) => href({ topic: slug, speciality: state.speciality, q: state.q }) },
@@ -35,8 +35,8 @@ export async function BlogListing({ state, crumbs, eyebrow, title, lead, showSec
       {guides && <GuidesSection posts={guides.items} />}
       <PostGrid title={gridTitle} data={latest} testId="blog-latest" href={(page) => href({ ...state, page })}
         empty={filtered
-          ? { title: "No articles match these filters", text: "Try a different topic or speciality, or clear your search.", href: "/blogs/", label: "Clear filters" }
-          : { title: "Articles are on their way", text: "Our team is preparing practical healthcare marketing articles. In the meantime, explore our free resources.", href: "/resources/", label: "Browse resources" }} />
+          ? { title: "No articles match these filters", text: "Try a different topic or speciality, or clear your search.", href: "/blogs", label: "Clear filters" }
+          : { title: "Articles are on their way", text: "Our team is preparing practical healthcare marketing articles. In the meantime, explore our free resources.", href: "/resources", label: "Browse resources" }} />
     </>
   );
 }

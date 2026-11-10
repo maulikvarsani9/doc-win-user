@@ -41,7 +41,7 @@ export function AudienceServices({ page }: { page: AudiencePage }) {
               const s = serviceBySlug(slug)!;
               return (
                 <li key={slug}>
-                  <Link href={`/services/${slug}/`} className="group flex h-full gap-4 rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-5 transition-colors duration-300 hover:bg-white/[0.08] sm:rounded-[1.5rem] sm:p-7" data-testid={`audience-service-${slug}`}>
+                  <Link href={`/services/${slug}`} className="group flex h-full gap-4 rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-5 transition-colors duration-300 hover:bg-white/[0.08] sm:rounded-[1.5rem] sm:p-7" data-testid={`audience-service-${slug}`}>
                     <IconTile icon={serviceIcons[slug]} tone="light" />
                     <span className="min-w-0 flex-1">
                       <span className="flex items-start justify-between gap-3 text-[1.08rem] font-medium leading-snug text-white">{s.name}<ArrowUpRight aria-hidden className="size-4 shrink-0 text-ink-400 transition-colors group-hover:text-signal-400" /></span>
@@ -123,7 +123,7 @@ export function AudienceProof({ t }: { t?: Testimonial }) {
             <p className="mt-6 text-[1.25rem] leading-snug tracking-[-0.005em] sm:text-[1.45rem]">10+ practicing doctors on our review panel.</p>
             <p className="mt-3 max-w-md text-[15px] leading-[1.65] text-ink-300">Every DocWin client is paired with a practicing doctor who reviews patient-facing content for medical accuracy and responsible communication.</p>
           </div>
-          <div className="mt-8 shrink-0 sm:mt-6"><ArrowLink href="/about/team/" tone="light" testId="audience-panel-link">Meet the panel</ArrowLink></div>
+          <div className="mt-8 shrink-0 sm:mt-6"><ArrowLink href="/about/team" tone="light" testId="audience-panel-link">Meet the panel</ArrowLink></div>
         </div>
       </Container>
     </section>

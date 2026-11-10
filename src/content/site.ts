@@ -25,24 +25,24 @@ export const site = {
 export type NavMenu = "services" | "audiences" | "resources" | "about";
 
 export const mainNav: { label: string; menu: NavMenu; match: string[] }[] = [
-  { label: "Services", menu: "services", match: ["/services/"] },
-  { label: "Who We Serve", menu: "audiences", match: ["/who-we-serve/"] },
-  { label: "Resources", menu: "resources", match: ["/resources/", "/blogs/", "/free-marketing-audit/"] },
-  { label: "About", menu: "about", match: ["/about/"] },
+  { label: "Services", menu: "services", match: ["/services"] },
+  { label: "Who We Serve", menu: "audiences", match: ["/who-we-serve"] },
+  { label: "Resources", menu: "resources", match: ["/resources", "/blogs", "/free-marketing-audit"] },
+  { label: "About", menu: "about", match: ["/about"] },
 ];
 
 export interface NavLink { href: string; label: string; text: string; icon: "book" | "pen" | "gauge" | "building" | "users" | "mail" }
 
 export const resourceLinks: NavLink[] = [
-  { href: "/resources/", label: "Guides & Resources", text: "Practical playbooks for healthcare marketing", icon: "book" },
-  { href: "/blogs/", label: "Blog", text: "Articles from our marketers and medical reviewers", icon: "pen" },
-  { href: "/free-marketing-audit/", label: "Free Marketing Audit", text: "See what's working and what to fix first", icon: "gauge" },
+  { href: "/resources", label: "Guides & Resources", text: "Practical playbooks for healthcare marketing", icon: "book" },
+  { href: "/blogs", label: "Blog", text: "Articles from our marketers and medical reviewers", icon: "pen" },
+  { href: "/free-marketing-audit", label: "Free Marketing Audit", text: "See what's working and what to fix first", icon: "gauge" },
 ];
 
 export const aboutLinks: NavLink[] = [
-  { href: "/about/", label: "About DocWin", text: "A doctor-founded healthcare marketing agency", icon: "building" },
-  { href: "/about/team/", label: "Our Team & Doctor Panel", text: "Meet the doctors who review our work", icon: "users" },
-  { href: "/contact/", label: "Contact Us", text: "Tell us what you want to achieve", icon: "mail" },
+  { href: "/about", label: "About DocWin", text: "A doctor-founded healthcare marketing agency", icon: "building" },
+  { href: "/about/team", label: "Our Team & Doctor Panel", text: "Meet the doctors who review our work", icon: "users" },
+  { href: "/contact", label: "Contact Us", text: "Tell us what you want to achieve", icon: "mail" },
 ];
 
-export const ebookLink = { href: "/resources/doctors-guide-to-digital-success/", label: "A Doctor's Guide to Digital Success" };
+export const ebookLink = { href: "/resources/doctors-guide-to-digital-success", label: "A Doctor's Guide to Digital Success" };

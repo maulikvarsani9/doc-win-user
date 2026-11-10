@@ -13,21 +13,21 @@ import { QuoteRow } from "@/components/proof/CompactQuote";
 import { MiniAuditBox } from "@/components/proof/MiniAuditBox";
 import { hubQuotes, hubStats, quotes, statList } from "@/content/proof";
 
-export const metadata = pageMetadata({ title: hub.seo.title, description: hub.seo.description, path: "/who-we-serve/", image: { url: "/images/og/hub-industries.jpg", width: 1200, height: 630 } });
+export const metadata = pageMetadata({ title: hub.seo.title, description: hub.seo.description, path: "/who-we-serve", image: { url: "/images/og/hub-industries.jpg", width: 1200, height: 630 } });
 
 const serviceLinks = [
-  { href: "/services/#search-visibility", label: "Search & visibility services" },
-  { href: "/services/#paid-advertising", label: "Paid advertising" },
-  { href: "/services/#websites-reputation", label: "Websites & reputation" },
-  { href: "/services/b2b-healthcare-marketing/", label: "B2B healthcare marketing" },
-  { href: "/services/", label: "View all services" },
+  { href: "/services#search-visibility", label: "Search & visibility services" },
+  { href: "/services#paid-advertising", label: "Paid advertising" },
+  { href: "/services#websites-reputation", label: "Websites & reputation" },
+  { href: "/services/b2b-healthcare-marketing", label: "B2B healthcare marketing" },
+  { href: "/services", label: "View all services" },
 ];
 
 export default function WhoWeServePage() {
-  const crumbs = [{ name: "Home", path: "/" }, { name: "Who We Serve", path: "/who-we-serve/" }];
+  const crumbs = [{ name: "Home", path: "/" }, { name: "Who We Serve", path: "/who-we-serve" }];
   return (
     <>
-      <JsonLd data={itemListSchema("Healthcare organizations we serve", audiences.map((a) => ({ name: a.name, path: `/who-we-serve/${a.slug}/` })))} />
+      <JsonLd data={itemListSchema("Healthcare organizations we serve", audiences.map((a) => ({ name: a.name, path: `/who-we-serve/${a.slug}` })))} />
       <PageHero eyebrow="Who we serve" title={hub.h1} intro={hub.intro} crumbs={crumbs} jumpTitle={`${audiences.length} industries in ${audienceGroups.length} groups`} jump={audienceGroups.map((g) => ({ id: g.id, label: g.name, count: audiencesIn(g.id).length }))} testId="audiences-hero" image={{ src: "/images/hubs/industries.jpg", alt: "Doctors, nurses and healthcare staff standing together in a hospital corridor" }}>
         <StatBand stats={statList(hubStats.audiences)} className="mt-8 max-w-xl sm:mt-10" testId="audiences-hero-stats" />
       </PageHero>
@@ -50,7 +50,7 @@ export default function WhoWeServePage() {
                 </div>
                 <div className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
                   {audiencesIn(g.id).map((a) => (
-                    <DirectoryCard key={a.slug} href={`/who-we-serve/${a.slug}/`} name={a.name} description={a.description} linkLabel={a.linkLabel} flag={a.status === "hold-proof" ? "On hold: proof needed" : undefined} icon={audienceIcons[a.slug]} testId={`audience-card-${a.slug}`} />
+                    <DirectoryCard key={a.slug} href={`/who-we-serve/${a.slug}`} name={a.name} description={a.description} linkLabel={a.linkLabel} flag={a.status === "hold-proof" ? "On hold: proof needed" : undefined} icon={audienceIcons[a.slug]} testId={`audience-card-${a.slug}`} />
                   ))}
                 </div>
               </section>
@@ -107,7 +107,7 @@ export default function WhoWeServePage() {
                 <blockquote className="font-display text-lg font-medium leading-snug text-white">“I partnered with my childhood friend, Dr. Wali, to create what the industry was missing: healthcare marketing by healthcare insiders.”</blockquote>
                 <figcaption className="mt-3 text-sm text-ink-300">Arbaz Fatmi, Co-Founder & Chief Marketing Officer</figcaption>
               </figure>
-              <div className="mt-8"><ArrowLink href="/about/team/" tone="light" testId="perspective-team-link">Meet the team</ArrowLink></div>
+              <div className="mt-8"><ArrowLink href="/about/team" tone="light" testId="perspective-team-link">Meet the team</ArrowLink></div>
             </div>
           </Container>
         </div>
@@ -121,7 +121,7 @@ export default function WhoWeServePage() {
               <p className="mt-4 text-[16px] leading-relaxed text-ink-700 sm:mt-5 sm:text-[17px]">{hub.notListed}</p>
             </div>
             <div className="cta-row lg:col-span-5 lg:justify-end">
-              <Link href="/contact/" className={btn("primary", "lg")} data-testid="not-listed-contact">Contact Us</Link>
+              <Link href="/contact" className={btn("primary", "lg")} data-testid="not-listed-contact">Contact Us</Link>
               <CtaLink kind="contact" className={btn("outline", "lg")} testId="not-listed-strategy">Book a Strategy Call</CtaLink>
             </div>
           </div>

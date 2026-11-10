@@ -20,11 +20,11 @@ const indexable = (terms: Term[], slug?: string) => !!slug && !!terms.find((t) =
 
 export function blogHref(s: Partial<ListState>, terms: { topics: Term[]; specialities: Term[] }) {
   const page = s.page && s.page > 1 ? s.page : undefined;
-  if (!s.q && s.topic && !s.speciality && indexable(terms.topics, s.topic)) return `/blogs/topic/${s.topic}/${query({ page })}`;
-  if (!s.q && s.speciality && !s.topic && indexable(terms.specialities, s.speciality)) return `/blogs/speciality/${s.speciality}/${query({ page })}`;
-  return `/blogs/${query({ topic: s.topic, speciality: s.speciality, q: s.q, page })}`;
+  if (!s.q && s.topic && !s.speciality && indexable(terms.topics, s.topic)) return `/blogs/topic/${s.topic}${query({ page })}`;
+  if (!s.q && s.speciality && !s.topic && indexable(terms.specialities, s.speciality)) return `/blogs/speciality/${s.speciality}${query({ page })}`;
+  return `/blogs${query({ topic: s.topic, speciality: s.speciality, q: s.q, page })}`;
 }
 
 export function resourcesHref(s: Partial<ListState>) {
-  return `/resources/${query({ type: s.type, topic: s.topic, speciality: s.speciality, q: s.q, page: s.page && s.page > 1 ? s.page : undefined })}`;
+  return `/resources${query({ type: s.type, topic: s.topic, speciality: s.speciality, q: s.q, page: s.page && s.page > 1 ? s.page : undefined })}`;
 }

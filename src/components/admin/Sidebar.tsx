@@ -8,11 +8,11 @@ import type { User } from "@/lib/admin-types";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { href: "/admin/posts/", label: "Blog posts", icon: FileText, id: "posts" },
-  { href: "/admin/authors/", label: "Authors & team", icon: Users, id: "authors" },
-  { href: "/admin/tags/", label: "Topics & specialities", icon: Tag, id: "tags" },
-  { href: "/admin/resources/", label: "Resources", icon: FolderDown, id: "resources" },
-  { href: "/admin/ctas/", label: "CTAs", icon: Megaphone, id: "ctas" },
+  { href: "/admin/posts", label: "Blog posts", icon: FileText, id: "posts" },
+  { href: "/admin/authors", label: "Authors & team", icon: Users, id: "authors" },
+  { href: "/admin/tags", label: "Topics & specialities", icon: Tag, id: "tags" },
+  { href: "/admin/resources", label: "Resources", icon: FolderDown, id: "resources" },
+  { href: "/admin/ctas", label: "CTAs", icon: Megaphone, id: "ctas" },
 ];
 
 export function Sidebar({ user, onLogout }: { user: User; onLogout: () => void }) {
@@ -29,11 +29,11 @@ export function Sidebar({ user, onLogout }: { user: User; onLogout: () => void }
   return (
     <>
       <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col bg-ink-900 p-4 lg:flex" data-testid="admin-sidebar">
-        <Link href="/admin/posts/" className="px-2 py-3"><Image src="/brand/docwin-logo-white.png" alt="DocWin Digital" width={943} height={265} className="h-8 w-auto" /></Link>
+        <Link href="/admin/posts" className="px-2 py-3"><Image src="/brand/docwin-logo-white.png" alt="DocWin Digital" width={943} height={265} className="h-8 w-auto" /></Link>
         <p className="mt-2 px-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-500">Content admin</p>
         <nav className="mt-3 space-y-1">{NAV.map((n) => link(n))}</nav>
         <div className="mt-auto space-y-1 border-t border-white/10 pt-4">
-          <a href="/blogs/" target="_blank" rel="noreferrer" className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[14px] text-ink-300 hover:bg-white/5 hover:text-white" data-testid="admin-view-site"><ExternalLink className="size-4" aria-hidden />View blog</a>
+          <a href="/blogs" target="_blank" rel="noreferrer" className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[14px] text-ink-300 hover:bg-white/5 hover:text-white" data-testid="admin-view-site"><ExternalLink className="size-4" aria-hidden />View blog</a>
           <button type="button" onClick={onLogout} className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-[14px] text-ink-300 hover:bg-white/5 hover:text-white" data-testid="admin-logout"><LogOut className="size-4" aria-hidden />Sign out</button>
           <p className="truncate px-3 pt-2 text-[12px] text-ink-500" data-testid="admin-user-email">{user.email}</p>
         </div>

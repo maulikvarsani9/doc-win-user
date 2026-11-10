@@ -28,10 +28,10 @@ const photos: Record<string, { src: string; alt: string }> = {
 export function ServiceTemplate({ service, page }: { service: Service; page: ServicePage }) {
   const category = serviceCategories.find((c) => c.id === service.category)!;
   const icon = serviceIcons[service.slug] ?? categoryIcons[service.category];
-  const path = `/services/${service.slug}/`;
-  const crumbs = [{ name: "Home", path: "/" }, { name: "Services", path: "/services/" }, { name: service.name, path }];
+  const path = `/services/${service.slug}`;
+  const crumbs = [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: service.name, path }];
   const proof = serviceProof(service.slug, service.category);
-  const audiences = page.audiences.map((slug) => audienceBySlug(slug)!).map((a) => ({ href: `/who-we-serve/${a.slug}/`, label: a.name, slug: a.slug }));
+  const audiences = page.audiences.map((slug) => audienceBySlug(slug)!).map((a) => ({ href: `/who-we-serve/${a.slug}`, label: a.name, slug: a.slug }));
   return (
     <>
       <JsonLd data={serviceSchema({ name: service.name, description: page.metaDescription, path })} />

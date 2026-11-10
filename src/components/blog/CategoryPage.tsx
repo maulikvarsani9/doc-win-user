@@ -8,14 +8,14 @@ const segment = { topic: "topic", speciality: "speciality" } as const;
 
 export async function loadCategory(kind: Exclude<TermKind, "resource_type">, slug: string) {
   const res = await getTerm(kind, slug);
-  if (isMoved(res)) permanentRedirect(`/blogs/${segment[kind]}/${res.redirect}/`);
+  if (isMoved(res)) permanentRedirect(`/blogs/${segment[kind]}/${res.redirect}`);
   if (!res || res.term.count === 0) notFound();
   return res.term;
 }
 
 export async function categoryMetadata(kind: Exclude<TermKind, "resource_type">, slug: string, searchParams: SearchParams) {
   const [term, s] = [await loadCategory(kind, slug), await readState(searchParams)];
-  const base = `/blogs/${segment[kind]}/${term.slug}/`;
+  const base = `/blogs/${segment[kind]}/${term.slug}`;
   const label = kind === "topic" ? "Healthcare Marketing" : "Marketing for";
   const fallbackTitle = kind === "topic" ? `${term.name}: ${label} Articles` : `${label} ${term.name}: Articles`;
   const title = brandTitle(term.seo_title || fallbackTitle) + (s.page > 1 ? ` (Page ${s.page})` : "");
@@ -30,6 +30,6 @@ export async function CategoryPage({ kind, slug, searchParams }: { kind: Exclude
   return (
     <BlogListing state={state} showSections={false} eyebrow={kind === "topic" ? "Blog topic" : "Blog speciality"} title={term.name}
       lead={term.description || `Practical articles about ${kind === "topic" ? term.name : term.name.toLowerCase()} from DocWin Digital.`}
-      crumbs={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blogs/" }, { name: term.name, path: `/blogs/${segment[kind]}/${term.slug}/` }]} />
+      crumbs={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blogs" }, { name: term.name, path: `/blogs/${segment[kind]}/${term.slug}` }]} />
   );
 }

@@ -84,7 +84,7 @@ export function DesktopNav() {
           );
         })}
         <li>
-          <Link href="/contact/" className={cn("whitespace-nowrap rounded-full px-3 py-2 text-[15px] transition-colors duration-200 xl:px-3.5", pathname.startsWith("/contact") ? "text-brand-700" : "text-ink-700 hover:text-ink-900")}
+          <Link href="/contact" className={cn("whitespace-nowrap rounded-full px-3 py-2 text-[15px] transition-colors duration-200 xl:px-3.5", pathname.startsWith("/contact") ? "text-brand-700" : "text-ink-700 hover:text-ink-900")}
             onPointerEnter={(e) => isMouse(e) && setOpen(null)} data-testid="nav-contact-us">
             Contact Us
           </Link>

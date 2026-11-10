@@ -35,7 +35,7 @@ export function useEntity<T extends Entity>(api: string, admin: string, id: stri
     }
     const saved = f.id ? await send<T>(`${api}/${f.id}`, "PUT", f) : await send<T>(api, "POST", f);
     reset(saved);
-    if (!f.id) router.replace(`${admin}/${saved.id}/`);
+    if (!f.id) router.replace(`${admin}/${saved.id}`);
     return saved;
   };
 
@@ -67,7 +67,7 @@ export function useEntity<T extends Entity>(api: string, admin: string, id: stri
     remove: run("delete", async () => {
       await send(`${api}/${ref.current!.id}`, "DELETE");
       toast.success("Deleted");
-      router.push(`${admin}/`);
+      router.push(admin);
     }),
   };
 

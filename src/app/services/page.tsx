@@ -16,7 +16,7 @@ import { QuoteRow } from "@/components/proof/CompactQuote";
 import { MiniAuditBox } from "@/components/proof/MiniAuditBox";
 import { hubQuotes, hubStats, quotes, statList } from "@/content/proof";
 
-export const metadata = pageMetadata({ title: hub.seo.title, description: hub.seo.description, path: "/services/", image: { url: "/images/og/hub-services.jpg", width: 1200, height: 630 } });
+export const metadata = pageMetadata({ title: hub.seo.title, description: hub.seo.description, path: "/services", image: { url: "/images/og/hub-services.jpg", width: 1200, height: 630 } });
 
 const flagFor = (s: Service) => (s.status === "hold-proof" ? "On hold: proof needed" : undefined);
 
@@ -37,7 +37,7 @@ function CategoryBlock({ cat }: { cat: ServiceCategory }) {
                 <h4 className="font-display text-lg font-medium">{s.name}</h4>
                 <p className="mt-1 text-[15px] text-ink-600">{s.description}</p>
               </div>
-              <Link href={`/services/${s.slug}/`} className="inline-flex shrink-0 items-center gap-2 text-[15px] font-semibold text-brand-700 hover:underline" data-testid={`service-card-${s.slug}-link`}>
+              <Link href={`/services/${s.slug}`} className="inline-flex shrink-0 items-center gap-2 text-[15px] font-semibold text-brand-700 hover:underline" data-testid={`service-card-${s.slug}-link`}>
                 {s.linkLabel} <ArrowRight aria-hidden className="size-4" />
               </Link>
             </li>
@@ -59,7 +59,7 @@ function CategoryBlock({ cat }: { cat: ServiceCategory }) {
       </div>
       <div className="grid gap-3 sm:grid-cols-2 sm:gap-5 lg:col-span-8">
         {list.map((s) => (
-          <DirectoryCard key={s.slug} href={`/services/${s.slug}/`} name={s.name} description={s.description} benefit={s.benefit} linkLabel={s.linkLabel} flag={flagFor(s)} icon={serviceIcons[s.slug]} testId={`service-card-${s.slug}`} />
+          <DirectoryCard key={s.slug} href={`/services/${s.slug}`} name={s.name} description={s.description} benefit={s.benefit} linkLabel={s.linkLabel} flag={flagFor(s)} icon={serviceIcons[s.slug]} testId={`service-card-${s.slug}`} />
         ))}
       </div>
     </section>
@@ -67,10 +67,10 @@ function CategoryBlock({ cat }: { cat: ServiceCategory }) {
 }
 
 export default function ServicesPage() {
-  const crumbs = [{ name: "Home", path: "/" }, { name: "Services", path: "/services/" }];
+  const crumbs = [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }];
   return (
     <>
-      <JsonLd data={itemListSchema("Healthcare marketing services", services.map((s) => ({ name: s.name, path: `/services/${s.slug}/` })))} />
+      <JsonLd data={itemListSchema("Healthcare marketing services", services.map((s) => ({ name: s.name, path: `/services/${s.slug}` })))} />
       <JsonLd data={faqSchema(hub.faqs)} />
       <PageHero eyebrow="Our services" title={hub.h1} intro={hub.intro} crumbs={crumbs} jumpTitle={`${services.length} services in ${serviceCategories.length} groups`} jump={serviceCategories.map((c) => ({ id: c.id, label: c.name, count: servicesIn(c.id).length }))} testId="services-hero" image={{ src: "/images/hubs/services.jpg", alt: "Marketing team planning healthcare campaigns together around laptops" }}>
         <StatBand stats={statList(hubStats.services)} className="mt-8 max-w-xl sm:mt-10" testId="services-hero-stats" />
@@ -135,8 +135,8 @@ export default function ServicesPage() {
               <p key={i} className={i === 2 ? "mt-5 text-sm leading-relaxed text-ink-500" : "mt-5 text-[16px] leading-relaxed text-ink-600 sm:text-[17px]"}>{p}</p>
             ))}
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
-              <ArrowLink href="/about/team/" testId="expertise-team-link">Meet our medical review panel</ArrowLink>
-              <ArrowLink href="/who-we-serve/" testId="expertise-audiences-link">See who we serve</ArrowLink>
+              <ArrowLink href="/about/team" testId="expertise-team-link">Meet our medical review panel</ArrowLink>
+              <ArrowLink href="/who-we-serve" testId="expertise-audiences-link">See who we serve</ArrowLink>
             </div>
           </div>
         </Container>
